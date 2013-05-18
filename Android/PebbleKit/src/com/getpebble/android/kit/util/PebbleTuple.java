@@ -9,7 +9,7 @@ import java.util.Map;
  *
  * @author zulak@getpebble.com
  */
-final class PebbleTuple {
+public final class PebbleTuple {
 
     private static final Charset UTF8 = Charset.forName("UTF-8");
 
