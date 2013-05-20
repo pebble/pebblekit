@@ -348,7 +348,7 @@ public class PebbleDictionary implements Iterable<PebbleTuple> {
         return d;
     }
 
-    private static JSONObject serializeTuple(PebbleTuple t) throws JSONException {
+    public static JSONObject serializeTuple(PebbleTuple t) throws JSONException {
         JSONObject j = new JSONObject();
         j.put(KEY, t.key);
         j.put(TYPE, t.type.getName());
