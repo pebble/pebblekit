@@ -1,6 +1,7 @@
 var searchData=
 [
   ['pbl_5fapp_5finfo',['PBL_APP_INFO',['../group___app.html#ga52e279e4da1908a5c8ef6aeeb8b97cdd',1,'pebble_app.h']]],
+  ['pbl_5fapp_5finfo_5fsimple',['PBL_APP_INFO_SIMPLE',['../group___app.html#ga15482eebbcbe0da73e8c773635844e2f',1,'pebble_app.h']]],
   ['pbl_5fmain',['pbl_main',['../group___app.html#gad91078c36fd4aa6bda6425e41e61977b',1,'app.h']]],
   ['pbltm',['PblTm',['../group___wall_time.html#struct_pbl_tm',1,'']]],
   ['pebbleappbuttoneventhandler',['PebbleAppButtonEventHandler',['../group___app.html#ga944bd16eb256d4a0fb354bfeec3dd9c2',1,'app.h']]],
@@ -29,5 +30,5 @@ var searchData=
   ['propertyanimationaccessors_2egetter',['PropertyAnimationAccessors.getter',['../group___property_animation.html#union_property_animation_accessors_8getter',1,'']]],
   ['propertyanimationaccessors_2esetter',['PropertyAnimationAccessors.setter',['../group___property_animation.html#union_property_animation_accessors_8setter',1,'']]],
   ['propertyanimationimplementation',['PropertyAnimationImplementation',['../group___property_animation.html#struct_property_animation_implementation',1,'']]],
-  ['psleep',['psleep',['../group___timer.html#ga00f41133e14542220d184131f9dcb863',1,'timer.h']]]
+  ['psleep',['psleep',['../group___timer.html#ga00f41133e14542220d184131f9dcb863',1,'sleep.h']]]
 ];

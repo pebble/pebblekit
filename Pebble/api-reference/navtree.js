@@ -2,18 +2,13 @@ var NAVTREE =
 [
   [ "Pebble Watchface SDK API Reference", "index.html", [
     [ "Modules", "modules.html", "modules" ],
-    [ "Data Structures", "annotated.html", "annotated" ],
-    [ "Data Structure Index", "classes.html", null ],
-    [ "Data Fields", "functions.html", [
-      [ "All", "functions.html", null ],
-      [ "Variables", "functions_vars.html", null ]
-    ] ]
+    [ "API Changelog", "_a_p_i_changelog.html", null ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"annotated.html",
+"_a_p_i_changelog.html",
 "group___menu_layer.html#ga4cc9ec01c64cdacec243b5316b467ba9"
 ];
 

@@ -12,6 +12,15 @@
 //!   @{
 
 #define PBL_APP_INFO_NOPAREN(...) __VA_ARGS__
+
+//! Macro to set the minimal metadata of the application
+//! @param uuid The universally unique identifier of a watchapp
+//! @param name The name of your app (max. 32 bytes long)
+//! @param company The name of your company (max. 32 bytes long)
+//! @param version The app's version as 16-bit value. The lower 8 bits will
+//! be used as minor version, the higher 8 bits will be used as major version.
+//! @note The metadata will not contain an icon resource. Use \ref PBL_APP_INFO
+//! instead to specify the icon resource.
 #define PBL_APP_INFO_SIMPLE(_uuid, name, company, version) PBL_APP_INFO(PBL_APP_INFO_NOPAREN(_uuid), (name), (company), ((version) & 0xff00) >> 8, ((version) & 0xff), INVALID_RESOURCE, 0)
 
 //! Macro to set the metadata of the application

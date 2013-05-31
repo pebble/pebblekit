@@ -101,9 +101,10 @@ public final class Constants {
      */
     public static final int SPORTS_DISTANCE_KEY = 0x01;
     /**
-     * The PebbleDictionary key corresponding to the 'pace' field sent to the Sports watch-app.
+     * The PebbleDictionary key corresponding to the 'data' field sent to the Sports watch-app.
+     * The data field is paired with a variable label and can be used to display any data.
      */
-    public static final int SPORTS_PACE_KEY = 0x02;
+    public static final int SPORTS_DATA_KEY = 0x02;
     /**
      * The PebbleDictionary key corresponding to the 'units' field sent to the Sports watch-app.
      */
@@ -114,6 +115,11 @@ public final class Constants {
      * transitions to stay in sync with the watch-app's state.
      */
     public static final int SPORTS_STATE_KEY = 0x04;
+    /**
+     * The PebbleDictionary key corresponding to the 'label' field sent to the Sports watch-app.
+     * The label field controls the label above the 'data' field.
+     */
+    public static final int SPORTS_LABEL_KEY = 0x05;
 
     /**
      * PebbleDictionary value corresponding to 'imperial' units.
@@ -123,6 +129,15 @@ public final class Constants {
      * PebbleDictionary value corresponding to 'metric' units.
      */
     public static final int SPORTS_UNITS_METRIC = 0x01;
+    /**
+     * PebbleDictionary value corresponding to 'speed' data.
+     */
+    public static final int SPORTS_DATA_SPEED = 0x00;
+    /**
+     * PebbleDictionary value corresponding to 'pace' data.
+     */
+    public static final int SPORTS_DATA_PACE = 0x01;
+
     public static final int SPORTS_STATE_INIT = 0x00;
     public static final int SPORTS_STATE_RUNNING = 0x01;
     public static final int SPORTS_STATE_PAUSED = 0x02;

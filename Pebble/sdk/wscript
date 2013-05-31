@@ -31,8 +31,11 @@ def configure(conf):
     conf.env.CFLAGS = [ '-std=c99',
                         '-mcpu=cortex-m3',
                         '-mthumb',
+                        '-ffunction-sections',
+                        '-fdata-sections',
                         '-g',
                         optimize_flag ]
+
     c_warnings = [ '-Wall',
                    '-Wextra',
                    '-Werror',

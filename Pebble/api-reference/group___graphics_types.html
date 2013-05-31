@@ -92,6 +92,84 @@ $(document).ready(function(){initNavTree('group___graphics_types.html','');});
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Basic graphics types (point, rect, size, color, bitmaps, etc.) and utility functions. </p>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga9f39cb9951629a7d32b4f9deb259c368"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gbitmap_init_as_sub_bitmap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___graphics_types.html#struct_g_bitmap">GBitmap</a> *&#160;</td>
+          <td class="paramname"><em>sub_bitmap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group___graphics_types.html#struct_g_bitmap">GBitmap</a> *&#160;</td>
+          <td class="paramname"><em>base_bitmap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___graphics_types.html#struct_g_rect">GRect</a>&#160;</td>
+          <td class="paramname"><em>sub_rect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes a <a class="el" href="group___graphics_types.html#struct_g_bitmap" title="Structure containing the metadata of a bitmap image.">GBitmap</a> as a sub-bitmap of a 'base' <a class="el" href="group___graphics_types.html#struct_g_bitmap" title="Structure containing the metadata of a bitmap image.">GBitmap</a>, using a <a class="el" href="group___graphics_types.html#struct_g_rect" title="Represents a rectangle and defining it using the origin of the upper-lefthand corner and its size...">GRect</a> to indicate what portion of the base to use. The sub-bitmap will just reference the image data of the base bitmap. No deep-copying occurs as a result of calling this function, thus the caller is responsible for making sure the base bitmap will remain available when using the sub-bitmap. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">sub_bitmap</td><td>The <a class="el" href="group___graphics_types.html#struct_g_bitmap">GBitmap</a> to initialize </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">base_bitmap</td><td>The bitmap that the sub-bitmap of which the image data will be used by the sub-bitmap </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">sub_rect</td><td>The rectangle within the image data of the base bitmap. The bounds of the base bitmap will be used to clip <code>sub_rect</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga78acc1d528b7c352fae5f548997a7ddf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gbitmap_init_with_data </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___graphics_types.html#struct_g_bitmap">GBitmap</a> *&#160;</td>
+          <td class="paramname"><em>bitmap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes a <a class="el" href="group___graphics_types.html#struct_g_bitmap" title="Structure containing the metadata of a bitmap image.">GBitmap</a> metadata using Pebble image file data (.pbi), as output by bitmapgen.py. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">bitmap</td><td>The <a class="el" href="group___graphics_types.html#struct_g_bitmap" title="Structure containing the metadata of a bitmap image.">GBitmap</a> to initialize </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bitmap</td><td>The <a class="el" href="group___graphics_types.html#struct_g_bitmap" title="Structure containing the metadata of a bitmap image.">GBitmap</a> set up using the geometry and image data from the supplied image file data. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">data</td><td>The Pebble image file data. Must not be NULL. The function assumes the data to be correct; there are no sanity checks performed on the data. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="ga55941ba733d6b685ba3fcd316ce12af0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -844,7 +922,7 @@ row_size_bytes</td>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu May 16 2013 01:56:09 for Pebble Watchface SDK API Reference by
+    <li class="footer">Generated on Fri May 31 2013 12:19:25 for Pebble Watchface SDK API Reference by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

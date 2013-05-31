@@ -40,6 +40,7 @@ var searchData=
   ['animationstoppedhandler',['AnimationStoppedHandler',['../group___animation.html#ga6a38fcd6237de7b21e5a3b260803fc66',1,'animation.h']]],
   ['animationteardownimplementation',['AnimationTeardownImplementation',['../group___animation.html#gadddea38a0c11c3eeb599f773388b2f01',1,'animation.h']]],
   ['animationupdateimplementation',['AnimationUpdateImplementation',['../group___animation.html#gaafbcb4e93cde98a4a2d542714675301a',1,'animation.h']]],
+  ['api_20changelog',['API Changelog',['../_a_p_i_changelog.html',1,'']]],
   ['app',['App',['../group___app.html',1,'']]],
   ['app_5fevent_5floop',['app_event_loop',['../group___app.html#ga58e8145200447f94a0bdfff88495ec11',1,'app.h']]],
   ['app_5fget_5fcurrent_5fgraphics_5fcontext',['app_get_current_graphics_context',['../group___app.html#gac4b511d9f09ad416358865e23159cfcc',1,'app_manager.h']]],

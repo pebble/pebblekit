@@ -13,6 +13,8 @@ var searchData=
   ['clickhandler',['ClickHandler',['../group___clicks.html#ga8a973b4663a5171db84223d6ae79f28d',1,'click.h']]],
   ['clickrecognizerref',['ClickRecognizerRef',['../group___clicks.html#gab0f235645c2d1eb7b622542b59706085',1,'click.h']]],
   ['clicks',['Clicks',['../group___clicks.html',1,'']]],
+  ['clock_5fcopy_5ftime_5fstring',['clock_copy_time_string',['../group___wall_time.html#ga5ddf6b7454fd49c0eb63d2e50d75fad7',1,'clock.h']]],
+  ['clock_5fis_5f24h_5fstyle',['clock_is_24h_style',['../group___wall_time.html#ga69393fbc51be905740fff59a150bdca9',1,'clock.h']]],
   ['content_5foffset_5fchanged_5fhandler',['content_offset_changed_handler',['../group___scroll_layer.html#ad2cb7771ef3ff8930996d188565dcf1e',1,'ScrollLayerCallbacks']]],
   ['context',['context',['../group___clicks.html#a7620543601b64c9d13bcf5ac1719b5ae',1,'ClickConfig::context()'],['../group___clicks.html#a19ad82e631b1cadd77eca271e89c9b7c',1,'ClickConfig::raw::context()'],['../group___app_message.html#a9ec1f516f45bb478aaca63d38822e0b5',1,'AppMessageCallbacksNode::context()']]],
   ['cos_5flookup',['cos_lookup',['../group___math.html#gaa8938fd0e58aed9906ecccacd8fde88c',1,'trig.h']]],

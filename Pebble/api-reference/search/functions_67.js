@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['gbitmap_5finit_5fas_5fsub_5fbitmap',['gbitmap_init_as_sub_bitmap',['../group___graphics_types.html#ga9f39cb9951629a7d32b4f9deb259c368',1,'gtypes.h']]],
+  ['gbitmap_5finit_5fwith_5fdata',['gbitmap_init_with_data',['../group___graphics_types.html#ga78acc1d528b7c352fae5f548997a7ddf',1,'gtypes.h']]],
   ['get_5ftime',['get_time',['../group___wall_time.html#gad6fb048920d31c9575f4c213d8415942',1,'pbl_time.h']]],
   ['gpath_5fdraw_5ffilled',['gpath_draw_filled',['../group___path_drawing.html#ga4aa5b80f8f98d2cb7e6701b39bb18e32',1,'gpath.h']]],
   ['gpath_5fdraw_5foutline',['gpath_draw_outline',['../group___path_drawing.html#ga33e423daf4e125ae273111871159eead',1,'gpath.h']]],

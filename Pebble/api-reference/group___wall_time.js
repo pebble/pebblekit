@@ -1,5 +1,7 @@
 var group___wall_time =
 [
+    [ "clock_copy_time_string", "group___wall_time.html#ga5ddf6b7454fd49c0eb63d2e50d75fad7", null ],
+    [ "clock_is_24h_style", "group___wall_time.html#ga69393fbc51be905740fff59a150bdca9", null ],
     [ "get_time", "group___wall_time.html#gad6fb048920d31c9575f4c213d8415942", null ],
     [ "string_format_time", "group___wall_time.html#ga9e58e9bfa96ab3d1a21dceaa40efdad8", null ],
     [ "TimeUnits", "group___wall_time.html#ga0423d00e0eb199de523a92031b5a1107", [

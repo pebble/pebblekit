@@ -652,12 +652,62 @@ Function pointer to the handler for timer events. <dl class="section see"><dt>Se
 
 </div>
 </div>
+<a class="anchor" id="ga15482eebbcbe0da73e8c773635844e2f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBL_APP_INFO_SIMPLE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_uuid, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">company, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">version&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="group___app.html#ga52e279e4da1908a5c8ef6aeeb8b97cdd">PBL_APP_INFO</a>(PBL_APP_INFO_NOPAREN(_uuid), (name), (company), ((version) &amp; 0xff00) &gt;&gt; 8, ((version) &amp; 0xff), INVALID_RESOURCE, 0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro to set the minimal metadata of the application. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uuid</td><td>The universally unique identifier of a watchapp </td></tr>
+    <tr><td class="paramname">name</td><td>The name of your app (max. 32 bytes long) </td></tr>
+    <tr><td class="paramname">company</td><td>The name of your company (max. 32 bytes long) </td></tr>
+    <tr><td class="paramname">version</td><td>The app's version as 16-bit value. The lower 8 bits will be used as minor version, the higher 8 bits will be used as major version. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The metadata will not contain an icon resource. Use <a class="el" href="group___app.html#ga52e279e4da1908a5c8ef6aeeb8b97cdd">PBL_APP_INFO</a> instead to specify the icon resource. </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu May 16 2013 01:56:09 for Pebble Watchface SDK API Reference by
+    <li class="footer">Generated on Fri May 31 2013 12:19:24 for Pebble Watchface SDK API Reference by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

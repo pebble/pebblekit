@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('group___clicks.html','');});
 <p>For example, here, we first associate a click config provider callback with our window: </p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> app_init(<a class="code" href="group___app.html#gae095c544730afa9de087e5316edfb575" title="Reference to opaque application context.">AppContextRef</a> app_ctx) {</div>
 <div class="line">  ...</div>
-<div class="line">  <a class="code" href="group___window.html#gaeefbe33bc69ffee444337b056912440c" title="Sets the click configuration provider callback function on the window. This will automatically setup ...">window_set_click_config_provider</a>(window, (<a class="code" href="group___clicks.html#gaf464934448a33b013956c80b1165f110" title="This callback gets called at times that a click recognizer has to be set up, for example when a new w...">ClickConfigProvider</a>) config_provider);</div>
+<div class="line">  <a class="code" href="group___window.html#gaeefbe33bc69ffee444337b056912440c" title="Sets the click configuration provider callback function on the window. This will automatically setup ...">window_set_click_config_provider</a>(&amp;window, (<a class="code" href="group___clicks.html#gaf464934448a33b013956c80b1165f110" title="This callback gets called at times that a click recognizer has to be set up, for example when a new w...">ClickConfigProvider</a>) config_provider);</div>
 <div class="line">  ...</div>
 <div class="line">}</div>
 </div><!-- fragment --><p> Then in the callback, we set our desired configuration for each button: </p>
@@ -488,7 +488,7 @@ Fired on button up events. </td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu May 16 2013 01:56:09 for Pebble Watchface SDK API Reference by
+    <li class="footer">Generated on Fri May 31 2013 12:19:24 for Pebble Watchface SDK API Reference by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

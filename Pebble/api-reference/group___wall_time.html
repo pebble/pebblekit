@@ -94,6 +94,60 @@ $(document).ready(function(){initNavTree('group___wall_time.html','');});
 <p>This module contains utilities to get the current time and create strings with formatted dates and times. </p>
 <dl class="section note"><dt>Note</dt><dd>When implementing a watchface or application that tells time, make sure to check out the <code>tick_info</code> field of <a class="el" href="group___app.html#struct_pebble_app_handlers">PebbleAppHandlers</a>. </dd></dl>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga5ddf6b7454fd49c0eb63d2e50d75fad7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clock_copy_time_string </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copies a time string into the buffer, formatted according to the user's time display preferences. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">buffer</td><td>A pointer to the buffer to copy the time string into </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">size</td><td>The maximum size of buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga69393fbc51be905740fff59a150bdca9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool clock_is_24h_style </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the user's 12/24h clock style preference. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the user prefers 24h-style time display or <code>false</code> if the user prefers 12h-style time display. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="gad6fb048920d31c9575f4c213d8415942"></a>
 <div class="memitem">
 <div class="memproto">
@@ -285,7 +339,7 @@ Years since 1900. </td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu May 16 2013 01:56:09 for Pebble Watchface SDK API Reference by
+    <li class="footer">Generated on Fri May 31 2013 12:19:25 for Pebble Watchface SDK API Reference by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

@@ -36,6 +36,12 @@ typedef struct TextLayout TextLayout;
 #define TRIG_MAX_ANGLE 0x10000
 #define ANIMATION_NORMALIZED_MIN 0
 #define ANIMATION_NORMALIZED_MAX 65535
+#define MENU_CELL_BASIC_HEADER_HEIGHT ((const int16_t) 16)
+#define MENU_INDEX_NOT_FOUND ((const uint16_t) ~0)
+#define MenuIndex(section, row) ((MenuIndex){ (section), (row) })
+#define ACTION_BAR_WIDTH 20
+#define NUM_ACTION_BAR_ITEMS 3
+#define ANIMATION_DURATION_INFINITE ((uint32_t) ~0)
 
 typedef struct AccelData
 {
@@ -806,3 +812,5 @@ void number_window_set_value(NumberWindow *numberwindow, int value);
 void number_window_set_step_size(NumberWindow *numberwindow, int step);
 int number_window_get_value(NumberWindow *numberwindow);
 void clock_copy_time_string(char *buffer, uint8_t size);
+void gbitmap_init_as_sub_bitmap(GBitmap *sub_bitmap, const GBitmap *base_bitmap, GRect sub_rect);
+void gbitmap_init_with_data(GBitmap *bitmap, const uint8_t *data);

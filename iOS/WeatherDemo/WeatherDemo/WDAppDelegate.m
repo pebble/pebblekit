@@ -47,9 +47,19 @@
       httpResponse = (NSHTTPURLResponse *) response;
     }
 
+    // NSURLConnection's completionHandler is called on the background thread.
+    // Prepare a block to show an alert on the main thread:
+    __block NSString *message = @"";
+    void (^showAlert)(void) = ^{
+      [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [[[UIAlertView alloc] initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+      }];
+    };
+
     // Check for error or non-OK statusCode:
     if (error || httpResponse.statusCode != 200) {
-      [[[UIAlertView alloc] initWithTitle:nil message:@"Error fetching weather" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+      message = @"Error fetching weather";
+      showAlert();
       return;
     }
 
@@ -77,15 +87,16 @@
         NSDictionary *update = @{ iconKey:[NSNumber numberWithUint8:weatherIconID],
                                   temperatureKey:[NSString stringWithFormat:@"%d\u00B0C", temperature] };
         [_targetWatch appMessagesPushUpdate:update onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
-          NSString *message = error ? [error localizedDescription] : @"Update sent!";
-          [[[UIAlertView alloc] initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+          message = error ? [error localizedDescription] : @"Update sent!";
+          showAlert();
         }];
         return;
       }
     }
     @catch (NSException *exception) {
     }
-    [[[UIAlertView alloc] initWithTitle:nil message:@"Error parsing response" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    message = @"Error parsing response";
+    showAlert();
   }];
 }
 
@@ -125,7 +136,7 @@
   _locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
   _locationManager.delegate = self;
   [_locationManager startUpdatingLocation];
-  
+
   UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
   [refreshButton setTitle:@"Fetch Weather" forState:UIControlStateNormal];
   [refreshButton addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventTouchUpInside];

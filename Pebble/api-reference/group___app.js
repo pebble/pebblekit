@@ -17,5 +17,6 @@ var group___app =
       [ "APP_INFO_VISIBILITY_HIDDEN", "group___app.html#ggab7b43090af89172f8d24fb26ff3d4919af30c2dfd891d736bf065ede10c60e963", null ],
       [ "APP_INFO_VISIBILITY_SHOWN_ON_COMMUNICATION", "group___app.html#ggab7b43090af89172f8d24fb26ff3d4919a4cf61ccd231d926541f7375da25115a1", null ]
     ] ],
-    [ "PBL_APP_INFO", "group___app.html#ga52e279e4da1908a5c8ef6aeeb8b97cdd", null ]
+    [ "PBL_APP_INFO", "group___app.html#ga52e279e4da1908a5c8ef6aeeb8b97cdd", null ],
+    [ "PBL_APP_INFO_SIMPLE", "group___app.html#ga15482eebbcbe0da73e8c773635844e2f", null ]
 ];

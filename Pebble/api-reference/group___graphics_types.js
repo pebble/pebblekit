@@ -1,5 +1,7 @@
 var group___graphics_types =
 [
+    [ "gbitmap_init_as_sub_bitmap", "group___graphics_types.html#ga9f39cb9951629a7d32b4f9deb259c368", null ],
+    [ "gbitmap_init_with_data", "group___graphics_types.html#ga78acc1d528b7c352fae5f548997a7ddf", null ],
     [ "gpoint_equal", "group___graphics_types.html#ga55941ba733d6b685ba3fcd316ce12af0", null ],
     [ "grect_align", "group___graphics_types.html#gad714d5d1dd0509196d8aadbdba2ac510", null ],
     [ "grect_center_point", "group___graphics_types.html#gabf597b51c3d7c5c7c5bd7b7143a72354", null ],

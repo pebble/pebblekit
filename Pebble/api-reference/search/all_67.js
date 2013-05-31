@@ -11,6 +11,8 @@ var searchData=
   ['galigntopleft',['GAlignTopLeft',['../group___graphics_types.html#ggac8aa0eb3d3065fde8d2d6f282fa47f6aae47b90e410e218b1035083f7d6df8371',1,'gtypes.h']]],
   ['galigntopright',['GAlignTopRight',['../group___graphics_types.html#ggac8aa0eb3d3065fde8d2d6f282fa47f6aaa6582295979f7c0661f6b5c686a5a606',1,'gtypes.h']]],
   ['gbitmap',['GBitmap',['../group___graphics_types.html#struct_g_bitmap',1,'']]],
+  ['gbitmap_5finit_5fas_5fsub_5fbitmap',['gbitmap_init_as_sub_bitmap',['../group___graphics_types.html#ga9f39cb9951629a7d32b4f9deb259c368',1,'gtypes.h']]],
+  ['gbitmap_5finit_5fwith_5fdata',['gbitmap_init_with_data',['../group___graphics_types.html#ga78acc1d528b7c352fae5f548997a7ddf',1,'gtypes.h']]],
   ['gcolor',['GColor',['../group___graphics_types.html#gaafde3cb660d99f7fe83e40c86e67b6c4',1,'gtypes.h']]],
   ['gcolorblack',['GColorBlack',['../group___graphics_types.html#ggaafde3cb660d99f7fe83e40c86e67b6c4a128d4e4336a363bccf2d86330c236274',1,'gtypes.h']]],
   ['gcolorclear',['GColorClear',['../group___graphics_types.html#ggaafde3cb660d99f7fe83e40c86e67b6c4a6891120e8a7f64c1df5e04145e395c68',1,'gtypes.h']]],

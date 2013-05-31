@@ -26,6 +26,7 @@ public class ExampleSportsActivity extends Activity {
     private PebbleKit.PebbleDataReceiver sportsDataHandler = null;
     private int sportsState = Constants.SPORTS_STATE_INIT;
     private boolean useMetric = false;
+    private boolean isPaceLabel = true;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -117,14 +118,16 @@ public class ExampleSportsActivity extends Activity {
     public void updateWatchApp(View view) {
         String time = String.format("%02d:%02d", rand.nextInt(60), rand.nextInt(60));
         String distance = String.format("%02.02f", 32 * rand.nextDouble());
-        String pace = String.format("%02d:%02d", rand.nextInt(10), rand.nextInt(60));
+	String addl_data = String.format("%02d:%02d", rand.nextInt(10), rand.nextInt(60));
 
         PebbleDictionary data = new PebbleDictionary();
         data.addString(Constants.SPORTS_TIME_KEY, time);
         data.addString(Constants.SPORTS_DISTANCE_KEY, distance);
-        data.addString(Constants.SPORTS_PACE_KEY, pace);
+	data.addString(Constants.SPORTS_DATA_KEY, addl_data);
+	data.addUint8(Constants.SPORTS_LABEL_KEY, (byte) (isPaceLabel ? Constants.SPORTS_DATA_SPEED : Constants.SPORTS_DATA_PACE));
 
         PebbleKit.sendDataToPebble(getApplicationContext(), Constants.SPORTS_UUID, data);
+	isPaceLabel = !isPaceLabel;
     }
 
     // The units in the sports app can be toggled between Metric (1) and Imperial (0)

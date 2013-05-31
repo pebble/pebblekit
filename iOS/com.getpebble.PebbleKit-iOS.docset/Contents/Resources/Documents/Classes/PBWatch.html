@@ -141,13 +141,13 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_AppMessages Methods">AppMessages Methods</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Ping Methods">Ping Methods</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Golf Methods">Golf Methods</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Sports Methods">Sports Methods</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_AppMessages Methods">AppMessages Methods</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Ping Methods">Ping Methods</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Sports Methods">Sports Methods</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Version Methods">Version Methods</a></span></li>
 	
@@ -412,6 +412,78 @@ The communication session is implicitely opened automatically when needed.</p></
 						</ul>
 						
 						
+						<a title="Ping Methods" name="task_Ping Methods"></a>
+						<h3 class="subsubtitle task-title">Ping Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pingWithCookie:onPong:onTimeout:">&ndash;&nbsp;pingWithCookie:onPong:onTimeout:</a></code>
+		<span class="tooltip"><p>Sends a ping to the watch.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Golf Methods" name="task_Golf Methods"></a>
+						<h3 class="subsubtitle task-title">Golf Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/golfGetIsSupported:">&ndash;&nbsp;golfGetIsSupported:</a></code>
+		<span class="tooltip"><p>Queries the watch whether Golf Messages are supported.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/golfAppLaunch:">&ndash;&nbsp;golfAppLaunch:</a></code>
+		<span class="tooltip"><p>Send a command to launch the golf app on the watch that the receiver represents.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/golfAppKill:">&ndash;&nbsp;golfAppKill:</a></code>
+		<span class="tooltip"><p>Send a command to kill the golf app on the watch that the receiver represents.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/golfAppUpdate:onSent:">&ndash;&nbsp;golfAppUpdate:onSent:</a></code>
+		<span class="tooltip"><p>Sends an update to the golf app on the watch that the receiver represents.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/golfAppAddReceiveUpdateHandler:">&ndash;&nbsp;golfAppAddReceiveUpdateHandler:</a></code>
+		<span class="tooltip"><p>Add a receive handler for incoming Golf updates that are send by the Golf watch application.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/golfAppRemoveUpdateHandler:">&ndash;&nbsp;golfAppRemoveUpdateHandler:</a></code>
+		<span class="tooltip"><p>Removes a receive handler that was previously installed using <a href="#//api/name/golfAppAddReceiveUpdateHandler:">golfAppAddReceiveUpdateHandler:</a></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/golfSetTitle:icon:onSent:">&ndash;&nbsp;golfSetTitle:icon:onSent:</a></code>
+		<span class="tooltip"><p>Assigns a custom title and icon to the golf app on the watch.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
 						<a title="AppMessages Methods" name="task_AppMessages Methods"></a>
 						<h3 class="subsubtitle task-title">AppMessages Methods</h3>
 
@@ -477,63 +549,6 @@ to make sure that the message that an app sends, arrives at its companion app on
 	<span class="tooltip">
 		<code><a href="#//api/name/appMessagesKill:">&ndash;&nbsp;appMessagesKill:</a></code>
 		<span class="tooltip"><p>Sends a command to kill the application on the watch.</p></span>
-	</span>
-	
-	
-</li>
-						</ul>
-						
-						
-						<a title="Golf Methods" name="task_Golf Methods"></a>
-						<h3 class="subsubtitle task-title">Golf Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/golfGetIsSupported:">&ndash;&nbsp;golfGetIsSupported:</a></code>
-		<span class="tooltip"><p>Queries the watch whether Golf Messages are supported.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/golfAppLaunch:">&ndash;&nbsp;golfAppLaunch:</a></code>
-		<span class="tooltip"><p>Send a command to launch the golf app on the watch that the receiver represents.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/golfAppKill:">&ndash;&nbsp;golfAppKill:</a></code>
-		<span class="tooltip"><p>Send a command to kill the golf app on the watch that the receiver represents.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/golfAppUpdate:onSent:">&ndash;&nbsp;golfAppUpdate:onSent:</a></code>
-		<span class="tooltip"><p>Sends an update to the golf app on the watch that the receiver represents.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/golfAppAddReceiveUpdateHandler:">&ndash;&nbsp;golfAppAddReceiveUpdateHandler:</a></code>
-		<span class="tooltip"><p>Add a receive handler for incoming Golf updates that are send by the Golf watch application.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/golfAppRemoveUpdateHandler:">&ndash;&nbsp;golfAppRemoveUpdateHandler:</a></code>
-		<span class="tooltip"><p>Removes a receive handler that was previously installed using <a href="#//api/name/golfAppAddReceiveUpdateHandler:">golfAppAddReceiveUpdateHandler:</a></p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/golfSetTitle:icon:onSent:">&ndash;&nbsp;golfSetTitle:icon:onSent:</a></code>
-		<span class="tooltip"><p>Assigns a custom title and icon to the golf app on the watch.</p></span>
 	</span>
 	
 	
@@ -616,21 +631,6 @@ supported.</p></span>
 	<span class="tooltip">
 		<code><a href="#//api/name/sportsSetTitle:icon:onSent:">&ndash;&nbsp;sportsSetTitle:icon:onSent:</a></code>
 		<span class="tooltip"><p>Assigns a custom title and icon to the sports app on the watch.</p></span>
-	</span>
-	
-	
-</li>
-						</ul>
-						
-						
-						<a title="Ping Methods" name="task_Ping Methods"></a>
-						<h3 class="subsubtitle task-title">Ping Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/pingWithCookie:onPong:onTimeout:">&ndash;&nbsp;pingWithCookie:onPong:onTimeout:</a></code>
-		<span class="tooltip"><p>Sends a ping to the watch.</p></span>
 	</span>
 	
 	
@@ -2974,7 +2974,7 @@ on older iOS versions this method has no effect.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Pebble Technology Corp.. All rights reserved. (Last updated: 2013-05-16)</span><br />
+						<p><span class="copyright">&copy; 2013 Pebble Technology Corp.. All rights reserved. (Last updated: 2013-05-31)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
 						
