@@ -14,7 +14,6 @@ Window window;
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Window Name");
   window_stack_push(&window, true /* Animated */);

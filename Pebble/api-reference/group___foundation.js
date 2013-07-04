@@ -8,5 +8,7 @@ var group___foundation =
     [ "Dictionary", "group___dictionary.html", "group___dictionary" ],
     [ "AppMessage", "group___app_message.html", "group___app_message" ],
     [ "Resources", "group___resources.html", "group___resources" ],
-    [ "AppSync", "group___app_sync.html", "group___app_sync" ]
+    [ "AppSync", "group___app_sync.html", "group___app_sync" ],
+    [ "Logging", "group___logging.html", "group___logging" ],
+    [ "App Communication", "group___app_comm.html", "group___app_comm" ]
 ];

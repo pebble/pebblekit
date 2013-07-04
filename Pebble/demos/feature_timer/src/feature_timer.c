@@ -23,8 +23,6 @@ AppTimerHandle timer_handle;
 
 
 void handle_timer(AppContextRef ctx, AppTimerHandle handle, uint32_t cookie) {
-  (void)ctx;
-  (void)handle;
 
   if (cookie == COOKIE_MY_TIMER) {
       text_layer_set_text(&text_layer, "Timer happened!");

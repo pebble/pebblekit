@@ -22,9 +22,6 @@ TextLayer timeLayer; // The clock
 // Called once per second
 void handle_second_tick(AppContextRef ctx, PebbleTickEvent *t) {
 
-  (void)t;
-  (void)ctx;
-
   static char timeText[] = "00:00:00"; // Needs to be static because it's used by the system later.
 
   PblTm currentTime;

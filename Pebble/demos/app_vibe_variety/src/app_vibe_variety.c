@@ -15,30 +15,22 @@ TextLayer textLayer;
 // Modify these common button handlers
 
 void up_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
   vibes_short_pulse();
 }
 
 
 void down_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
   vibes_long_pulse();
 }
 
 
 void select_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
 
   vibes_double_pulse();
 }
 
 
 void select_long_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
 
 }
 
@@ -46,7 +38,6 @@ void select_long_click_handler(ClickRecognizerRef recognizer, Window *window) {
 // This usually won't need to be modified
 
 void click_config_provider(ClickConfig **config, Window *window) {
-  (void)window;
 
   config[BUTTON_ID_SELECT]->click.handler = (ClickHandler) select_single_click_handler;
 
@@ -63,7 +54,6 @@ void click_config_provider(ClickConfig **config, Window *window) {
 // Standard app initialisation
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Vibe Variety");
   window_stack_push(&window, true /* Animated */ );

@@ -31,8 +31,6 @@ BmpContainer image;
 
 
 void layer_update_callback(Layer *me, GContext* ctx) {
-  (void)me;
-  (void)ctx;
 
   // We make sure the dimensions of the GRect to draw into
   // are equal to the size of the bitmap--otherwise the image
@@ -54,7 +52,6 @@ void layer_update_callback(Layer *me, GContext* ctx) {
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Draw Bitmap");
   window_stack_push(&window, true /* Animated */);
@@ -71,7 +68,6 @@ void handle_init(AppContextRef ctx) {
 
 
 void handle_deinit(AppContextRef ctx) {
-  (void)ctx;
 
   bmp_deinit_container(&image);
 }

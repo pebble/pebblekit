@@ -179,15 +179,12 @@ void display_time(PblTm *tick_time) {
 
 
 void handle_minute_tick(AppContextRef ctx, PebbleTickEvent *t) {
-  (void)t;
-  (void)ctx;
 
   display_time(t->tick_time);
 }
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Big Time watch");
   window_stack_push(&window, true);
@@ -204,7 +201,6 @@ void handle_init(AppContextRef ctx) {
 
 
 void handle_deinit(AppContextRef ctx) {
-  (void)ctx;
 
   for (int i = 0; i < TOTAL_IMAGE_SLOTS; i++) {
     unload_digit_image_from_slot(i);

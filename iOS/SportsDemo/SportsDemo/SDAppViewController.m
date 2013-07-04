@@ -28,9 +28,9 @@
 
   [_watch sportsAppLaunch:^(PBWatch *watch, NSError *error) {
     if (error) {
-      _logTextView.text = [_logTextView.text stringByAppendingString:@"Launch command sent.\n"];
-    } else {
       _logTextView.text = [_logTextView.text stringByAppendingString:@"Failed sending launch command.\n"];
+    } else {
+      _logTextView.text = [_logTextView.text stringByAppendingString:@"Launch command sent.\n"];
     }
   }];
 }
@@ -40,9 +40,9 @@
 
   [_watch sportsAppKill:^(PBWatch *watch, NSError *error) {
     if (error) {
-      _logTextView.text = [_logTextView.text stringByAppendingString:@"Kill command sent.\n"];
-    } else {
       _logTextView.text = [_logTextView.text stringByAppendingString:@"Failed sending kill command.\n"];
+    } else {
+      _logTextView.text = [_logTextView.text stringByAppendingString:@"Kill command sent.\n"];
     }
   }];
 

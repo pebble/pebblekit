@@ -33,7 +33,8 @@ var group___graphics_types =
       [ "GCompOpAssignInverted", "group___graphics_types.html#gga0d021422bd90a2a49e6c8d848e6d556fa1ee43eff5811f9066ee8a94498e7d828", null ],
       [ "GCompOpOr", "group___graphics_types.html#gga0d021422bd90a2a49e6c8d848e6d556fa30d689e91f2ce16dd949b4076fb76ce4", null ],
       [ "GCompOpAnd", "group___graphics_types.html#gga0d021422bd90a2a49e6c8d848e6d556fa0859125379c8687a92843a6db44fb7a6", null ],
-      [ "GCompOpClear", "group___graphics_types.html#gga0d021422bd90a2a49e6c8d848e6d556faba6dadf20ebce8ba4c25ecf3c9a39142", null ]
+      [ "GCompOpClear", "group___graphics_types.html#gga0d021422bd90a2a49e6c8d848e6d556faba6dadf20ebce8ba4c25ecf3c9a39142", null ],
+      [ "GCompOpSet", "group___graphics_types.html#gga0d021422bd90a2a49e6c8d848e6d556fa3ca84b5c70798643a3bd07b263c47fe6", null ]
     ] ],
     [ "GPoint", "group___graphics_types.html#gabf9cee451faac8ad07157b775b951699", null ],
     [ "GPointZero", "group___graphics_types.html#ga24192f6809de17d816671a1d6a7b59b5", null ],

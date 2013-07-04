@@ -14,7 +14,6 @@ Layer line_layer;
 
 
 void line_layer_update_callback(Layer *me, GContext* ctx) {
-  (void)me;
 
   graphics_context_set_stroke_color(ctx, GColorWhite);
 
@@ -25,7 +24,6 @@ void line_layer_update_callback(Layer *me, GContext* ctx) {
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Simplicity");
   window_stack_push(&window, true /* Animated */);
@@ -60,8 +58,6 @@ void handle_init(AppContextRef ctx) {
 
 
 void handle_minute_tick(AppContextRef ctx, PebbleTickEvent *t) {
-
-  (void)ctx;
 
   // Need to be static because they're used by the system later.
   static char time_text[] = "00:00";

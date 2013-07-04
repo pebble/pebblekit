@@ -77,7 +77,6 @@ void schedule_animation(PblTm *tick_time) {
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Drop Zone");
   window_stack_push(&window, true /* Animated */);
@@ -100,8 +99,6 @@ void handle_init(AppContextRef ctx) {
 
 
 void handle_minute_tick(AppContextRef ctx, PebbleTickEvent *t) {
-
-  (void)ctx;
 
   // Need to be static because it's used by the system later.
   static char time_text[] = "00:00";

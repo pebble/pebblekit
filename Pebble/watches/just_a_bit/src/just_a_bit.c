@@ -99,7 +99,6 @@ unsigned short get_display_hour(unsigned short hour) {
 
 
 void display_layer_update_callback(Layer *me, GContext* ctx) {
-  (void)me;
 
   PblTm t;
 
@@ -119,15 +118,12 @@ void display_layer_update_callback(Layer *me, GContext* ctx) {
 }
 
 void handle_second_tick(AppContextRef ctx, PebbleTickEvent *t) {
-  (void)t;
-  (void)ctx; // TODO: Pass tick event/PblTime rather than make layer use `get_time()`?
 
   layer_mark_dirty(&display_layer);
 }
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Just A Bit watch");
   window_stack_push(&window, true);

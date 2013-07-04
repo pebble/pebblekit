@@ -40,6 +40,14 @@ In order for Pebble to work with iPhones, Pebble is part of the Made For iPhone 
 
 ## Change Log
 
+#### 2013-07-03 - 1.12
+- Log errors to the console if there is no delegate set on PBWatch
+- Bugfixes
+-- Fix threading bugs in WeatherDemo
+-- Fix bugs that could cause callbacks to be called on the wrong thread
+-- Fix a bug that could cause a crash when re-connecting to the watch
+-- Fix a bug that caused some types to be unavailable (gtypes.h)
+
 #### 2013-05-06
 - Added WeatherDemo sample project to demonstrate custom use of the AppMessage subsystem
 - Added -[PBWatch closeSession:] to enable 3rd party apps to explicitely close the shared communication session.

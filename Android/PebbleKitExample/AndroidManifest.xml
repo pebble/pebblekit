@@ -35,7 +35,9 @@
 
     <activity
       android:name=".ExampleSportsActivity"
-      android:label="@string/activity_sports"></activity>
+      android:label="@string/activity_sports">
+
+    </activity>
 
     <activity
       android:name=".ExampleGolfActivity"
@@ -46,6 +48,12 @@
     <activity
       android:name=".ExampleWeatherActivity"
       android:label="@string/activity_weather">
+
+    </activity>
+
+    <activity
+      android:name=".TodoList.ExampleTodoListActivity"
+      android:label="@string/activity_todo_list">
 
     </activity>
 

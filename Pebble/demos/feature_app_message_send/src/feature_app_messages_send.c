@@ -69,22 +69,17 @@ static void send_cmd(uint8_t cmd) {
 }
 
 void up_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
   
   send_cmd(CMD_UP);
   vibes_short_pulse();
 }
 
 void down_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
   
   send_cmd(CMD_DOWN);
 }
 
 void click_config_provider(ClickConfig **config, Window *window) {
-  (void)window;
   
   config[BUTTON_ID_UP]->click.handler = (ClickHandler) up_single_click_handler;
   config[BUTTON_ID_UP]->click.repeat_interval_ms = 100;
@@ -94,8 +89,6 @@ void click_config_provider(ClickConfig **config, Window *window) {
 }
 
 void handle_second_tick(AppContextRef ctx, PebbleTickEvent *t) {
-  (void)t;
-  (void)ctx;
   
   static char timeText[] = "00:00:00"; // Needs to be static because it's used by the system later.
   
@@ -110,7 +103,6 @@ void handle_second_tick(AppContextRef ctx, PebbleTickEvent *t) {
 }
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
   
   window_init(&window, "GPS SMS Time");
   window_stack_push(&window, true /* Animated */);

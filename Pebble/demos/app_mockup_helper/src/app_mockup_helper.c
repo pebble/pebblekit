@@ -20,7 +20,6 @@ BmpContainer image_mockup;
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Mockup Helper");
   window_stack_push(&window, true /* Animated */);
@@ -34,7 +33,6 @@ void handle_init(AppContextRef ctx) {
 
 
 void handle_deinit(AppContextRef ctx) {
-  (void)ctx;
 
   bmp_deinit_container(&image_mockup);
 }

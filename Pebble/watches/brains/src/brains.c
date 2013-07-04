@@ -126,14 +126,12 @@ void update_hand_positions() {
 
 
 void handle_second_tick(AppContextRef ctx, PebbleTickEvent *t) {
-  (void)t;
 
   update_hand_positions(); // TODO: Pass tick event
 }
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Brains Watch");
   window_stack_push(&window, true);
@@ -195,7 +193,6 @@ void handle_init(AppContextRef ctx) {
 
 
 void handle_deinit(AppContextRef ctx) {
-  (void)ctx;
 
   bmp_deinit_container(&background_image_container);
   rotbmp_deinit_container(&hour_hand_image_container);

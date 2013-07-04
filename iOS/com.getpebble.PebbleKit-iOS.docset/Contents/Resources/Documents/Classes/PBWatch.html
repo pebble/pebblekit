@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.1 (build 858)" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
 	</head>
 	<body>
 		<header id="top_header">
@@ -141,15 +141,15 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Ping Methods">Ping Methods</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Sports Methods">Sports Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Version Methods">Version Methods</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Golf Methods">Golf Methods</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_AppMessages Methods">AppMessages Methods</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Sports Methods">Sports Methods</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Version Methods">Version Methods</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Ping Methods">Ping Methods</a></span></li>
 	
 </ul></li>
 
@@ -284,25 +284,25 @@
 						<h2 class="subtitle subtitle-overview">Overview</h2>
 						<p>Represents a Pebble watch.</p>
 
-<p>On iOS, there is the notion of a &ldquo;communication session&rdquo; between an app and<br/>
-the Pebble watch. You can imagine this as a &ldquo;data pipe&rdquo; directly from the<br/>
-watch to your app. However, there is only one session for 3rd party apps.<br/>
-This one session has to be shared among all 3rd party apps that want to<br/>
+<p>On iOS, there is the notion of a &ldquo;communication session&rdquo; between an app and
+the Pebble watch. You can imagine this as a &ldquo;data pipe&rdquo; directly from the
+watch to your app. However, there is only one session for 3rd party apps.
+This one session has to be shared among all 3rd party apps that want to
 communicate with Pebble (excluding the official Pebble iOS app).</p>
 
-<p>Unfortunately, the session can only be opened from the phone app. This means<br/>
-that the iOS app has to start talking to the watch first to open the<br/>
-communications channel; the other way around is not possible.<br/>
-Most methods in the PBWatch categories (Ping), (Version), (Sports), (Golf)<br/>
+<p>Unfortunately, the session can only be opened from the phone app. This means
+that the iOS app has to start talking to the watch first to open the
+communications channel; the other way around is not possible.
+Most methods in the PBWatch categories (Ping), (Version), (Sports), (Golf)
 and (AppMessages) all implicitly open the shared communication session.</p>
 
-<p>Lastly, iOS provides no good way to manage how the one shared session is<br/>
-accessed or used. Simply, the last iOS app to try to open it, wins and gets<br/>
-to use it. Therefore, it is important that your iOS app does <strong>not</strong> try<br/>
+<p>Lastly, iOS provides no good way to manage how the one shared session is
+accessed or used. Simply, the last iOS app to try to open it, wins and gets
+to use it. Therefore, it is important that your iOS app does <strong>not</strong> try
 communicate when a Pebble is <a href="#//api/name/connected">connected</a>.</p>
 
-<p>When the user has stopped using your app (e.g. when going to the background<br/>
-or when explicitely stopping a certain activity in the app) your iOS app<br/>
+<p>When the user has stopped using your app (e.g. when going to the background
+or when explicitely stopping a certain activity in the app) your iOS app
 should close the communication session using the <a href="#//api/name/closeSession:">closeSession:</a> method.</p>
 					</div>
 					
@@ -322,14 +322,15 @@ should close the communication session using the <a href="#//api/name/closeSessi
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/connected">&nbsp;&nbsp;connected</a></code>
-		<span class="tooltip"><p>YES if the receiver is connected and NO if the receiver is disconnected.</p></span>
+		<span class="tooltip"><p>YES if the receiver is connected and NO if the receiver is disconnected.
+@discussion This property is KVO-capable.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/name">&nbsp;&nbsp;name</a></code>
-		<span class="tooltip"><p>The human-friendly name of the receiver.<br/>
+		<span class="tooltip"><p>The human-friendly name of the receiver.
 This is the same name as the user will see in the iOS Bluetooth Settings.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -358,8 +359,8 @@ This is the same name as the user will see in the iOS Bluetooth Settings.</p></s
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/userInfo">&nbsp;&nbsp;userInfo</a></code>
-		<span class="tooltip"><p>The userInfo property can be used to associate application specific data<br/>
-with the watch. Note that the application itself is responsible for persisting<br/>
+		<span class="tooltip"><p>The userInfo property can be used to associate application specific data
+with the watch. Note that the application itself is responsible for persisting
 the information if neccessary.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -367,7 +368,7 @@ the information if neccessary.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/wakeToken">&nbsp;&nbsp;wakeToken</a></code>
-		<span class="tooltip"><p>The opaque data representing the Bluetooth device, that can be used to<br/>
+		<span class="tooltip"><p>The opaque data representing the Bluetooth device, that can be used to
 ask iOS to connect to the device.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -375,8 +376,8 @@ ask iOS to connect to the device.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/lastConnectedDate">&nbsp;&nbsp;lastConnectedDate</a></code>
-		<span class="tooltip"><p>The date when the watch was last known to be <a href="#//api/name/connected">connected</a>.<br/>
-This date will be updated automatically when the watch connects and<br/>
+		<span class="tooltip"><p>The date when the watch was last known to be <a href="#//api/name/connected">connected</a>.
+This date will be updated automatically when the watch connects and
 disconnects. While the watch is being <a href="#//api/name/connected">connected</a>, this date will not be updated.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -384,8 +385,8 @@ disconnects. While the watch is being <a href="#//api/name/connected">connected<
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/wake">&ndash;&nbsp;wake</a></code>
-		<span class="tooltip"><p>Attemps to &ldquo;wake&rdquo; the Pebble, which means iOS will try<br/>
-opening a connection. This method only works on iOS 6 or newer;<br/>
+		<span class="tooltip"><p>Attemps to &ldquo;wake&rdquo; the Pebble, which means iOS will try
+opening a connection. This method only works on iOS 6 or newer;
 on older iOS versions this method has no effect.</p></span>
 	</span>
 	
@@ -400,10 +401,10 @@ on older iOS versions this method has no effect.</p></span>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/closeSession:">&ndash;&nbsp;closeSession:</a></code>
-		<span class="tooltip"><p>Closes the communication session with the watch.<br/>
-Since there is only one, shared session for all 3rd party iOS apps,<br/>
-an app should close the session after the user is done using the app/watch-integration,<br/>
-so it can be used by other apps.<br/>
+		<span class="tooltip"><p>Closes the communication session with the watch.
+Since there is only one, shared session for all 3rd party iOS apps,
+an app should close the session after the user is done using the app/watch-integration,
+so it can be used by other apps.
 The communication session is implicitely opened automatically when needed.</p></span>
 	</span>
 	
@@ -412,14 +413,98 @@ The communication session is implicitely opened automatically when needed.</p></
 						</ul>
 						
 						
-						<a title="Ping Methods" name="task_Ping Methods"></a>
-						<h3 class="subsubtitle task-title">Ping Methods</h3>
+						<a title="Sports Methods" name="task_Sports Methods"></a>
+						<h3 class="subsubtitle task-title">Sports Methods</h3>
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/pingWithCookie:onPong:onTimeout:">&ndash;&nbsp;pingWithCookie:onPong:onTimeout:</a></code>
-		<span class="tooltip"><p>Sends a ping to the watch.</p></span>
+		<code><a href="#//api/name/sportsGetIsSupported:">&ndash;&nbsp;sportsGetIsSupported:</a></code>
+		<span class="tooltip"><p>Queries the watch whether Sports Messages are supported.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sportsAppLaunch:">&ndash;&nbsp;sportsAppLaunch:</a></code>
+		<span class="tooltip"><p>Send a command to launch the sports app on the watch that the receiver represents.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sportsAppKill:">&ndash;&nbsp;sportsAppKill:</a></code>
+		<span class="tooltip"><p>Send a command to kill the sports app on the watch that the receiver represents.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sportsAppSetMetric:onSent:">&ndash;&nbsp;sportsAppSetMetric:onSent:</a></code>
+		<span class="tooltip"><p>Send a command to the sports app on the watch that the receiver represents, to set the preferred
+unit system, either metric or imperial.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sportsAppSetLabel:onSent:">&ndash;&nbsp;sportsAppSetLabel:onSent:</a></code>
+		<span class="tooltip"><p>Send a command to the sports app on the watch that the receiver represents,
+to set the preferred  data label (either PACE or SPEED) and corresponding units.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sportsAppSetActivityState:onSent:">&ndash;&nbsp;sportsAppSetActivityState:onSent:</a></code>
+		<span class="tooltip"><p>Send a command to the sports app on the watch that the receiver represents, to set the state of the
+sports activity. Currently only SportsAppActivityStateRunning and SportsAppActivityStatePaused are
+supported.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sportsAppUpdate:onSent:">&ndash;&nbsp;sportsAppUpdate:onSent:</a></code>
+		<span class="tooltip"><p>Sends the update to the sports app on the watch that the receiver represents.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sportsAppAddReceiveUpdateHandler:">&ndash;&nbsp;sportsAppAddReceiveUpdateHandler:</a></code>
+		<span class="tooltip"><p>Add a receive handler for incoming Sports updates that are send by the Sports watch application.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sportsAppRemoveUpdateHandler:">&ndash;&nbsp;sportsAppRemoveUpdateHandler:</a></code>
+		<span class="tooltip"><p>Removes a receive handler that was previously installed using <a href="#//api/name/sportsAppAddReceiveUpdateHandler:">sportsAppAddReceiveUpdateHandler:</a></p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sportsSetTitle:icon:onSent:">&ndash;&nbsp;sportsSetTitle:icon:onSent:</a></code>
+		<span class="tooltip"><p>Assigns a custom title and icon to the sports app on the watch.
+@discussion It is recommended to perform this as the first call after <a href="#//api/name/sportsGetIsSupported:">sportsGetIsSupported:</a>
+to avoid changing the title and icon while it is being displayed in the menu as to avoid confusion.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Version Methods" name="task_Version Methods"></a>
+						<h3 class="subsubtitle task-title">Version Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getVersionInfo:onTimeout:">&ndash;&nbsp;getVersionInfo:onTimeout:</a></code>
+		<span class="tooltip"><p>Requests the version info from the receiver.</p></span>
 	</span>
 	
 	
@@ -476,7 +561,9 @@ The communication session is implicitely opened automatically when needed.</p></
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/golfSetTitle:icon:onSent:">&ndash;&nbsp;golfSetTitle:icon:onSent:</a></code>
-		<span class="tooltip"><p>Assigns a custom title and icon to the golf app on the watch.</p></span>
+		<span class="tooltip"><p>Assigns a custom title and icon to the golf app on the watch.
+@discussion It is recommended to perform this as the first call after <a href="#//api/name/golfGetIsSupported:">golfGetIsSupported:</a>
+to avoid changing the title and icon while it is being displayed in the menu as to avoid confusion.</p></span>
 	</span>
 	
 	
@@ -498,7 +585,7 @@ The communication session is implicitely opened automatically when needed.</p></
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/appMessagesSetUUID:">&ndash;&nbsp;appMessagesSetUUID:</a></code>
-		<span class="tooltip"><p>Configures the UUID of the application. The UUID is used as the identifier of the watch/phone app pair and is used<br/>
+		<span class="tooltip"><p>Configures the UUID of the application. The UUID is used as the identifier of the watch/phone app pair and is used
 to make sure that the message that an app sends, arrives at its companion app on the other device (and not in another app).</p></span>
 	</span>
 	
@@ -556,96 +643,14 @@ to make sure that the message that an app sends, arrives at its companion app on
 						</ul>
 						
 						
-						<a title="Sports Methods" name="task_Sports Methods"></a>
-						<h3 class="subsubtitle task-title">Sports Methods</h3>
+						<a title="Ping Methods" name="task_Ping Methods"></a>
+						<h3 class="subsubtitle task-title">Ping Methods</h3>
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/sportsGetIsSupported:">&ndash;&nbsp;sportsGetIsSupported:</a></code>
-		<span class="tooltip"><p>Queries the watch whether Sports Messages are supported.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/sportsAppLaunch:">&ndash;&nbsp;sportsAppLaunch:</a></code>
-		<span class="tooltip"><p>Send a command to launch the sports app on the watch that the receiver represents.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/sportsAppKill:">&ndash;&nbsp;sportsAppKill:</a></code>
-		<span class="tooltip"><p>Send a command to kill the sports app on the watch that the receiver represents.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/sportsAppSetMetric:onSent:">&ndash;&nbsp;sportsAppSetMetric:onSent:</a></code>
-		<span class="tooltip"><p>Send a command to the sports app on the watch that the receiver represents, to set the preferred<br/>
-unit system, either metric or imperial.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/sportsAppSetLabel:onSent:">&ndash;&nbsp;sportsAppSetLabel:onSent:</a></code>
-		<span class="tooltip"><p>Send a command to the sports app on the watch that the receiver represents,<br/>
-to set the preferred  data label (either PACE or SPEED) and corresponding units.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/sportsAppSetActivityState:onSent:">&ndash;&nbsp;sportsAppSetActivityState:onSent:</a></code>
-		<span class="tooltip"><p>Send a command to the sports app on the watch that the receiver represents, to set the state of the<br/>
-sports activity. Currently only SportsAppActivityStateRunning and SportsAppActivityStatePaused are<br/>
-supported.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/sportsAppUpdate:onSent:">&ndash;&nbsp;sportsAppUpdate:onSent:</a></code>
-		<span class="tooltip"><p>Sends the update to the sports app on the watch that the receiver represents.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/sportsAppAddReceiveUpdateHandler:">&ndash;&nbsp;sportsAppAddReceiveUpdateHandler:</a></code>
-		<span class="tooltip"><p>Add a receive handler for incoming Sports updates that are send by the Sports watch application.</p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/sportsAppRemoveUpdateHandler:">&ndash;&nbsp;sportsAppRemoveUpdateHandler:</a></code>
-		<span class="tooltip"><p>Removes a receive handler that was previously installed using <a href="#//api/name/sportsAppAddReceiveUpdateHandler:">sportsAppAddReceiveUpdateHandler:</a></p></span>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/sportsSetTitle:icon:onSent:">&ndash;&nbsp;sportsSetTitle:icon:onSent:</a></code>
-		<span class="tooltip"><p>Assigns a custom title and icon to the sports app on the watch.</p></span>
-	</span>
-	
-	
-</li>
-						</ul>
-						
-						
-						<a title="Version Methods" name="task_Version Methods"></a>
-						<h3 class="subsubtitle task-title">Version Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/getVersionInfo:onTimeout:">&ndash;&nbsp;getVersionInfo:onTimeout:</a></code>
-		<span class="tooltip"><p>Requests the version info from the receiver.</p></span>
+		<code><a href="#//api/name/pingWithCookie:onPong:onTimeout:">&ndash;&nbsp;pingWithCookie:onPong:onTimeout:</a></code>
+		<span class="tooltip"><p>Sends a ping to the watch.</p></span>
 	</span>
 	
 	
@@ -669,7 +674,8 @@ supported.</p></span>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>YES if the receiver is connected and NO if the receiver is disconnected.</p>
+		<p>YES if the receiver is connected and NO if the receiver is disconnected.
+@discussion This property is KVO-capable.</p>
 	</div>		
 	
     
@@ -686,7 +692,8 @@ supported.</p></span>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>YES if the receiver is connected and NO if the receiver is disconnected.</p><p>This property is KVO-capable.</p>
+		<p>YES if the receiver is connected and NO if the receiver is disconnected.
+@discussion This property is KVO-capable.</p>
 	</div>
 	
 	
@@ -760,8 +767,8 @@ supported.</p></span>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The date when the watch was last known to be <a href="#//api/name/connected">connected</a>.<br/>
-This date will be updated automatically when the watch connects and<br/>
+		<p>The date when the watch was last known to be <a href="#//api/name/connected">connected</a>.
+This date will be updated automatically when the watch connects and
 disconnects. While the watch is being <a href="#//api/name/connected">connected</a>, this date will not be updated.</p>
 	</div>		
 	
@@ -779,8 +786,8 @@ disconnects. While the watch is being <a href="#//api/name/connected">connected<
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The date when the watch was last known to be <a href="#//api/name/connected">connected</a>.<br/>
-This date will be updated automatically when the watch connects and<br/>
+		<p>The date when the watch was last known to be <a href="#//api/name/connected">connected</a>.
+This date will be updated automatically when the watch connects and
 disconnects. While the watch is being <a href="#//api/name/connected">connected</a>, this date will not be updated.</p>
 	</div>
 	
@@ -805,7 +812,7 @@ disconnects. While the watch is being <a href="#//api/name/connected">connected<
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The human-friendly name of the receiver.<br/>
+		<p>The human-friendly name of the receiver.
 This is the same name as the user will see in the iOS Bluetooth Settings.</p>
 	</div>		
 	
@@ -823,7 +830,7 @@ This is the same name as the user will see in the iOS Bluetooth Settings.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The human-friendly name of the receiver.<br/>
+		<p>The human-friendly name of the receiver.
 This is the same name as the user will see in the iOS Bluetooth Settings.</p>
 	</div>
 	
@@ -889,8 +896,8 @@ This is the same name as the user will see in the iOS Bluetooth Settings.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The userInfo property can be used to associate application specific data<br/>
-with the watch. Note that the application itself is responsible for persisting<br/>
+		<p>The userInfo property can be used to associate application specific data
+with the watch. Note that the application itself is responsible for persisting
 the information if neccessary.</p>
 	</div>		
 	
@@ -908,8 +915,8 @@ the information if neccessary.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The userInfo property can be used to associate application specific data<br/>
-with the watch. Note that the application itself is responsible for persisting<br/>
+		<p>The userInfo property can be used to associate application specific data
+with the watch. Note that the application itself is responsible for persisting
 the information if neccessary.</p>
 	</div>
 	
@@ -984,7 +991,7 @@ the information if neccessary.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The opaque data representing the Bluetooth device, that can be used to<br/>
+		<p>The opaque data representing the Bluetooth device, that can be used to
 ask iOS to connect to the device.</p>
 	</div>		
 	
@@ -1002,7 +1009,7 @@ ask iOS to connect to the device.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The opaque data representing the Bluetooth device, that can be used to<br/>
+		<p>The opaque data representing the Bluetooth device, that can be used to
 ask iOS to connect to the device.</p>
 	</div>
 	
@@ -1014,7 +1021,7 @@ ask iOS to connect to the device.</p>
 		<h4 class="method-subtitle">See Also</h4>
 		<ul>
 			
-			<li><code><p><a href="#//api/name/wake">- wake</a></p></code></li>
+			<li><code><p><a href="#//api/name/wake">&ndash; wake</a></p></code></li>
 			
 		</ul>
 	</div>
@@ -1099,7 +1106,7 @@ ask iOS to connect to the device.</p>
 		<h4 class="method-subtitle">See Also</h4>
 		<ul>
 			
-			<li><code><p><a href="#//api/name/appMessagesRemoveUpdateHandler:">- appMessagesRemoveUpdateHandler:</a></p></code></li>
+			<li><code><p><a href="#//api/name/appMessagesRemoveUpdateHandler:">&ndash; appMessagesRemoveUpdateHandler:</a></p></code></li>
 			
 		</ul>
 	</div>
@@ -1135,7 +1142,7 @@ ask iOS to connect to the device.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>fetchedBlock</em></dt>
-			<dd><p>The block that will be called whenthe inquiry has finished. The fetchedBlock will be called<br/>
+			<dd><p>The block that will be called whenthe inquiry has finished. The fetchedBlock will be called
 asynchronously on the queue that was originally used when calling this method.</p></dd>
 		</dl>
 		
@@ -1159,8 +1166,7 @@ asynchronously on the queue that was originally used when calling this method.</
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Queries the watch whether AppMessages are supported.</p><blockquote><p>%note%<br/>
-<strong>Note:</strong> This API is the only AppMessages method that can (and should) be used before <a href="#//api/name/appMessagesSetUUID:">appMessagesSetUUID:</a></p></blockquote>
+		<p>Queries the watch whether AppMessages are supported.</p><div class="note"><p><strong>Note:</strong> This API is the only AppMessages method that can (and should) be used before <a href="#//api/name/appMessagesSetUUID:">appMessagesSetUUID:</a></p></div>
 	</div>
 	
 	
@@ -1217,7 +1223,7 @@ asynchronously on the queue that was originally used when calling this method.</
 		<h4 class="method-subtitle">See Also</h4>
 		<ul>
 			
-			<li><code><p><a href="#//api/name/appMessagesSetUUID:">- appMessagesSetUUID:</a></p></code></li>
+			<li><code><p><a href="#//api/name/appMessagesSetUUID:">&ndash; appMessagesSetUUID:</a></p></code></li>
 			
 		</ul>
 	</div>
@@ -1365,8 +1371,8 @@ asynchronously on the queue that was originally used when calling this method.</
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>dictionary</em></dt>
-			<dd><p>Contains the key/value pairs to update. The dictionary can only contain items with an NSNumber<br/>
-key and only contain NSString, NSNumber or NSData values. Use the methods in the NSNumber (stdint) category to<br/>
+			<dd><p>Contains the key/value pairs to update. The dictionary can only contain items with an NSNumber
+key and only contain NSString, NSNumber or NSData values. Use the methods in the NSNumber (stdint) category to
 create NSNumbers with specific types standard integer types.</p></dd>
 		</dl>
 		
@@ -1462,7 +1468,7 @@ create NSNumbers with specific types standard integer types.</p></dd>
 		<h4 class="method-subtitle">See Also</h4>
 		<ul>
 			
-			<li><code><p><a href="#//api/name/appMessagesAddReceiveUpdateHandler:">- appMessagesAddReceiveUpdateHandler:</a></p></code></li>
+			<li><code><p><a href="#//api/name/appMessagesAddReceiveUpdateHandler:">&ndash; appMessagesAddReceiveUpdateHandler:</a></p></code></li>
 			
 		</ul>
 	</div>
@@ -1484,7 +1490,7 @@ create NSNumbers with specific types standard integer types.</p></dd>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Configures the UUID of the application. The UUID is used as the identifier of the watch/phone app pair and is used<br/>
+		<p>Configures the UUID of the application. The UUID is used as the identifier of the watch/phone app pair and is used
 to make sure that the message that an app sends, arrives at its companion app on the other device (and not in another app).</p>
 	</div>		
 	
@@ -1512,10 +1518,9 @@ to make sure that the message that an app sends, arrives at its companion app on
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Configures the UUID of the application. The UUID is used as the identifier of the watch/phone app pair and is used<br/>
-to make sure that the message that an app sends, arrives at its companion app on the other device (and not in another app).</p><blockquote><p>%note%<br/>
-<strong>Note:</strong> When -appMessagesSetUUID: is called, the UUID will be used for all incoming and outgoing messages thereafter.<br/>
-The UUID needs to be set before doing any other AppMessage operations (with one exeception, <a href="#//api/name/appMessagesGetIsSupported:">appMessagesGetIsSupported:</a> ).</p></blockquote>
+		<p>Configures the UUID of the application. The UUID is used as the identifier of the watch/phone app pair and is used
+to make sure that the message that an app sends, arrives at its companion app on the other device (and not in another app).</p><div class="note"><p><strong>Note:</strong> When -appMessagesSetUUID: is called, the UUID will be used for all incoming and outgoing messages thereafter.
+The UUID needs to be set before doing any other AppMessage operations (with one exeception, <a href="#//api/name/appMessagesGetIsSupported:">appMessagesGetIsSupported:</a> ).</p></div>
 	</div>
 	
 	
@@ -1572,7 +1577,7 @@ The UUID needs to be set before doing any other AppMessage operations (with one 
 		<h4 class="method-subtitle">See Also</h4>
 		<ul>
 			
-			<li><code><p><a href="#//api/name/appMessagesSetUUID:">- appMessagesSetUUID:</a></p></code></li>
+			<li><code><p><a href="#//api/name/appMessagesSetUUID:">&ndash; appMessagesSetUUID:</a></p></code></li>
 			
 		</ul>
 	</div>
@@ -1594,10 +1599,10 @@ The UUID needs to be set before doing any other AppMessage operations (with one 
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Closes the communication session with the watch.<br/>
-Since there is only one, shared session for all 3rd party iOS apps,<br/>
-an app should close the session after the user is done using the app/watch-integration,<br/>
-so it can be used by other apps.<br/>
+		<p>Closes the communication session with the watch.
+Since there is only one, shared session for all 3rd party iOS apps,
+an app should close the session after the user is done using the app/watch-integration,
+so it can be used by other apps.
 The communication session is implicitely opened automatically when needed.</p>
 	</div>		
 	
@@ -1612,8 +1617,8 @@ The communication session is implicitely opened automatically when needed.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>onDone</em></dt>
-			<dd><p>Callback block that will be called after the closing of the session<br/>
-has completed. If there is no open session, the onDone block will (also) be executed<br/>
+			<dd><p>Callback block that will be called after the closing of the session
+has completed. If there is no open session, the onDone block will (also) be executed
 asynchronously on the calling queue.</p></dd>
 		</dl>
 		
@@ -1627,10 +1632,10 @@ asynchronously on the calling queue.</p></dd>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Closes the communication session with the watch.<br/>
-Since there is only one, shared session for all 3rd party iOS apps,<br/>
-an app should close the session after the user is done using the app/watch-integration,<br/>
-so it can be used by other apps.<br/>
+		<p>Closes the communication session with the watch.
+Since there is only one, shared session for all 3rd party iOS apps,
+an app should close the session after the user is done using the app/watch-integration,
+so it can be used by other apps.
 The communication session is implicitely opened automatically when needed.</p>
 	</div>
 	
@@ -1668,7 +1673,7 @@ The communication session is implicitely opened automatically when needed.</p>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>localized, user-friendly summary of the receiver, including<br/>
+		<p>localized, user-friendly summary of the receiver, including
 software and hardware version information, if available.</p>
 	</div>
 	
@@ -1726,7 +1731,9 @@ software and hardware version information, if available.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>versionInfo</em></dt>
-			<dd><p>The version info response.</p></dd>
+			<dd><p>The version info response.
+@discussion The <a href="../Classes/PBVersionInfo.html">PBVersionInfo</a> response will be cached. The latest version info can be
+accessed through the <a href="#//api/name/versionInfo">versionInfo</a> property of <PBWatch>.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -1744,8 +1751,7 @@ software and hardware version information, if available.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Requests the version info from the receiver.</p><p>The <a href="../Classes/PBVersionInfo.html">PBVersionInfo</a> response will be cached. The latest version info can be<br/>
-accessed through the <a href="#//api/name/versionInfo">versionInfo</a> property of <PBWatch>.</p>
+		<p>Requests the version info from the receiver.</p>
 	</div>
 	
 	
@@ -1822,7 +1828,7 @@ accessed through the <a href="#//api/name/versionInfo">versionInfo</a> property 
 		<h4 class="method-subtitle">See Also</h4>
 		<ul>
 			
-			<li><code><p><a href="#//api/name/golfAppRemoveUpdateHandler:">- golfAppRemoveUpdateHandler:</a></p></code></li>
+			<li><code><p><a href="#//api/name/golfAppRemoveUpdateHandler:">&ndash; golfAppRemoveUpdateHandler:</a></p></code></li>
 			
 		</ul>
 	</div>
@@ -1994,7 +2000,7 @@ accessed through the <a href="#//api/name/versionInfo">versionInfo</a> property 
 		<h4 class="method-subtitle">See Also</h4>
 		<ul>
 			
-			<li><code><p><a href="#//api/name/golfAppAddReceiveUpdateHandler:">- golfAppAddReceiveUpdateHandler:</a></p></code></li>
+			<li><code><p><a href="#//api/name/golfAppAddReceiveUpdateHandler:">&ndash; golfAppAddReceiveUpdateHandler:</a></p></code></li>
 			
 		</ul>
 	</div>
@@ -2030,7 +2036,7 @@ accessed through the <a href="#//api/name/versionInfo">versionInfo</a> property 
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>update</em></dt>
-			<dd><p>The update to send. Use one or more keys (PBGolfFrontKey, PBGolfMidKey, PBGolfBackKey, PBGolfHoleKey, PBGolfParKey)<br/>
+			<dd><p>The update to send. Use one or more keys (PBGolfFrontKey, PBGolfMidKey, PBGolfBackKey, PBGolfHoleKey, PBGolfParKey)
 note that the value for each key MUST be of NSString type.</p></dd>
 		</dl>
 		
@@ -2092,7 +2098,7 @@ note that the value for each key MUST be of NSString type.</p></dd>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>fetchedBlock</em></dt>
-			<dd><p>The block that will be called whenthe inquiry has finished. The fetchedBlock will be called<br/>
+			<dd><p>The block that will be called whenthe inquiry has finished. The fetchedBlock will be called
 asynchronously on the queue that was originally used when calling this method.</p></dd>
 		</dl>
 		
@@ -2116,8 +2122,7 @@ asynchronously on the queue that was originally used when calling this method.</
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Queries the watch whether Golf Messages are supported.</p><blockquote><p>%note%<br/>
-<strong>Note:</strong> This API is the only AppMessages method that can (and should) be used before <a href="#//api/name/appMessagesSetUUID:">appMessagesSetUUID:</a></p></blockquote>
+		<p>Queries the watch whether Golf Messages are supported.</p><div class="note"><p><strong>Note:</strong> This API is the only AppMessages method that can (and should) be used before <a href="#//api/name/appMessagesSetUUID:">appMessagesSetUUID:</a></p></div>
 	</div>
 	
 	
@@ -2141,7 +2146,9 @@ asynchronously on the queue that was originally used when calling this method.</
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Assigns a custom title and icon to the golf app on the watch.</p>
+		<p>Assigns a custom title and icon to the golf app on the watch.
+@discussion It is recommended to perform this as the first call after <a href="#//api/name/golfGetIsSupported:">golfGetIsSupported:</a>
+to avoid changing the title and icon while it is being displayed in the menu as to avoid confusion.</p>
 	</div>		
 	
     
@@ -2188,7 +2195,8 @@ asynchronously on the queue that was originally used when calling this method.</
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Assigns a custom title and icon to the golf app on the watch.</p><p>It is recommended to perform this as the first call after <a href="#//api/name/golfGetIsSupported:">golfGetIsSupported:</a><br/>
+		<p>Assigns a custom title and icon to the golf app on the watch.
+@discussion It is recommended to perform this as the first call after <a href="#//api/name/golfGetIsSupported:">golfGetIsSupported:</a>
 to avoid changing the title and icon while it is being displayed in the menu as to avoid confusion.</p>
 	</div>
 	
@@ -2332,7 +2340,7 @@ to avoid changing the title and icon while it is being displayed in the menu as 
 		<h4 class="method-subtitle">See Also</h4>
 		<ul>
 			
-			<li><code><p><a href="#//api/name/sportsAppRemoveUpdateHandler:">- sportsAppRemoveUpdateHandler:</a></p></code></li>
+			<li><code><p><a href="#//api/name/sportsAppRemoveUpdateHandler:">&ndash; sportsAppRemoveUpdateHandler:</a></p></code></li>
 			
 		</ul>
 	</div>
@@ -2504,7 +2512,7 @@ to avoid changing the title and icon while it is being displayed in the menu as 
 		<h4 class="method-subtitle">See Also</h4>
 		<ul>
 			
-			<li><code><p><a href="#//api/name/sportsAppAddReceiveUpdateHandler:">- sportsAppAddReceiveUpdateHandler:</a></p></code></li>
+			<li><code><p><a href="#//api/name/sportsAppAddReceiveUpdateHandler:">&ndash; sportsAppAddReceiveUpdateHandler:</a></p></code></li>
 			
 		</ul>
 	</div>
@@ -2526,8 +2534,8 @@ to avoid changing the title and icon while it is being displayed in the menu as 
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Send a command to the sports app on the watch that the receiver represents, to set the state of the<br/>
-sports activity. Currently only SportsAppActivityStateRunning and SportsAppActivityStatePaused are<br/>
+		<p>Send a command to the sports app on the watch that the receiver represents, to set the state of the
+sports activity. Currently only SportsAppActivityStateRunning and SportsAppActivityStatePaused are
 supported.</p>
 	</div>		
 	
@@ -2565,8 +2573,8 @@ supported.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Send a command to the sports app on the watch that the receiver represents, to set the state of the<br/>
-sports activity. Currently only SportsAppActivityStateRunning and SportsAppActivityStatePaused are<br/>
+		<p>Send a command to the sports app on the watch that the receiver represents, to set the state of the
+sports activity. Currently only SportsAppActivityStateRunning and SportsAppActivityStatePaused are
 supported.</p>
 	</div>
 	
@@ -2591,7 +2599,7 @@ supported.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Send a command to the sports app on the watch that the receiver represents,<br/>
+		<p>Send a command to the sports app on the watch that the receiver represents,
 to set the preferred  data label (either PACE or SPEED) and corresponding units.</p>
 	</div>		
 	
@@ -2629,7 +2637,7 @@ to set the preferred  data label (either PACE or SPEED) and corresponding units.
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Send a command to the sports app on the watch that the receiver represents,<br/>
+		<p>Send a command to the sports app on the watch that the receiver represents,
 to set the preferred  data label (either PACE or SPEED) and corresponding units.</p>
 	</div>
 	
@@ -2654,7 +2662,7 @@ to set the preferred  data label (either PACE or SPEED) and corresponding units.
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Send a command to the sports app on the watch that the receiver represents, to set the preferred<br/>
+		<p>Send a command to the sports app on the watch that the receiver represents, to set the preferred
 unit system, either metric or imperial.</p>
 	</div>		
 	
@@ -2692,7 +2700,7 @@ unit system, either metric or imperial.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Send a command to the sports app on the watch that the receiver represents, to set the preferred<br/>
+		<p>Send a command to the sports app on the watch that the receiver represents, to set the preferred
 unit system, either metric or imperial.</p>
 	</div>
 	
@@ -2731,7 +2739,7 @@ unit system, either metric or imperial.</p>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>update</em></dt>
-			<dd><p>The update to send. Use one or more keys (PBSportsTimeKey, PBSportsPaceKey, PBSportsDistanceKey)<br/>
+			<dd><p>The update to send. Use one or more keys (PBSportsTimeKey, PBSportsPaceKey, PBSportsDistanceKey)
 note that the value for each key MUST be of NSString type.</p></dd>
 		</dl>
 		
@@ -2793,7 +2801,7 @@ note that the value for each key MUST be of NSString type.</p></dd>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>fetchedBlock</em></dt>
-			<dd><p>The block that will be called whenthe inquiry has finished. The fetchedBlock will be called<br/>
+			<dd><p>The block that will be called whenthe inquiry has finished. The fetchedBlock will be called
 asynchronously on the queue that was originally used when calling this method.</p></dd>
 		</dl>
 		
@@ -2817,8 +2825,7 @@ asynchronously on the queue that was originally used when calling this method.</
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Queries the watch whether Sports Messages are supported.</p><blockquote><p>%note%<br/>
-<strong>Note:</strong> This API is the only AppMessages method that can (and should) be used before <a href="#//api/name/appMessagesSetUUID:">appMessagesSetUUID:</a></p></blockquote>
+		<p>Queries the watch whether Sports Messages are supported.</p><div class="note"><p><strong>Note:</strong> This API is the only AppMessages method that can (and should) be used before <a href="#//api/name/appMessagesSetUUID:">appMessagesSetUUID:</a></p></div>
 	</div>
 	
 	
@@ -2842,7 +2849,9 @@ asynchronously on the queue that was originally used when calling this method.</
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Assigns a custom title and icon to the sports app on the watch.</p>
+		<p>Assigns a custom title and icon to the sports app on the watch.
+@discussion It is recommended to perform this as the first call after <a href="#//api/name/sportsGetIsSupported:">sportsGetIsSupported:</a>
+to avoid changing the title and icon while it is being displayed in the menu as to avoid confusion.</p>
 	</div>		
 	
     
@@ -2889,7 +2898,8 @@ asynchronously on the queue that was originally used when calling this method.</
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Assigns a custom title and icon to the sports app on the watch.</p><p>It is recommended to perform this as the first call after <a href="#//api/name/sportsGetIsSupported:">sportsGetIsSupported:</a><br/>
+		<p>Assigns a custom title and icon to the sports app on the watch.
+@discussion It is recommended to perform this as the first call after <a href="#//api/name/sportsGetIsSupported:">sportsGetIsSupported:</a>
 to avoid changing the title and icon while it is being displayed in the menu as to avoid confusion.</p>
 	</div>
 	
@@ -2914,8 +2924,8 @@ to avoid changing the title and icon while it is being displayed in the menu as 
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Attemps to &ldquo;wake&rdquo; the Pebble, which means iOS will try<br/>
-opening a connection. This method only works on iOS 6 or newer;<br/>
+		<p>Attemps to &ldquo;wake&rdquo; the Pebble, which means iOS will try
+opening a connection. This method only works on iOS 6 or newer;
 on older iOS versions this method has no effect.</p>
 	</div>		
 	
@@ -2933,8 +2943,8 @@ on older iOS versions this method has no effect.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Attemps to &ldquo;wake&rdquo; the Pebble, which means iOS will try<br/>
-opening a connection. This method only works on iOS 6 or newer;<br/>
+		<p>Attemps to &ldquo;wake&rdquo; the Pebble, which means iOS will try
+opening a connection. This method only works on iOS 6 or newer;
 on older iOS versions this method has no effect.</p>
 	</div>
 	
@@ -2974,9 +2984,9 @@ on older iOS versions this method has no effect.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Pebble Technology Corp.. All rights reserved. (Last updated: 2013-05-31)</span><br />
+						<p><span class="copyright">&copy; 2013 Pebble Technology Corp.. All rights reserved. (Last updated: 2013-07-04)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
 					</div>
 				</div>

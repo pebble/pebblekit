@@ -26,6 +26,8 @@ typedef struct TextLayout TextLayout;
 ((const Tuplet) { .type = TUPLE_CSTRING, .key = _key, .cstring = { .data = _cstring, .length = _cstring ? strlen(_cstring) + 1 : 0 }})
 #define TupletInteger(_key, _integer) \
 ((const Tuplet) { .type = IS_SIGNED(_integer) ? TUPLE_INT : TUPLE_UINT, .key = _key, .integer = { .storage = _integer, .width = sizeof(_integer) }})
+#define APP_TIMER_INVALID_HANDLE ((AppTimerHandle)0)
+#define INT_MAX 32767
 #define GPoint(x, y) ((GPoint){(x), (y)})
 #define GPointZero GPoint(0, 0)
 #define GSize(w, h) ((GSize){(w), (h)})
@@ -42,6 +44,8 @@ typedef struct TextLayout TextLayout;
 #define ACTION_BAR_WIDTH 20
 #define NUM_ACTION_BAR_ITEMS 3
 #define ANIMATION_DURATION_INFINITE ((uint32_t) ~0)
+#define APP_LOG(level, fmt, args...)                                \
+  app_log(level, __FILE__, __LINE__, fmt, ## args)
 
 typedef struct AccelData
 {
@@ -121,7 +125,7 @@ typedef struct GBitmap
   uint16_t info_flags;
   GRect bounds;
 } GBitmap;
-typedef enum {GCompOpAssign, GCompOpAssignInverted, GCompOpOr, GCompOpAnd, GCompOpClear} GCompOp;
+typedef enum {GCompOpAssign, GCompOpAssignInverted, GCompOpOr, GCompOpAnd, GCompOpClear, GCompOpSet} GCompOp;
 typedef struct 
 {
   GRect clip_box;
@@ -614,6 +618,8 @@ typedef struct AppSync
 } AppSync;
 typedef void (*DictionarySerializeCallback)(const uint8_t * const data, const uint16_t size, void *context);
 typedef void (*DictionaryKeyUpdatedCallback)(const uint32_t key, const Tuple *new_tuple, const Tuple *old_tuple, void *context);
+typedef enum {SNIFF_INTERVAL_NORMAL = 0, SNIFF_INTERVAL_REDUCED = 1} SniffInterval;
+typedef enum {APP_LOG_LEVEL_ERROR = 1, APP_LOG_LEVEL_WARNING = 50, APP_LOG_LEVEL_INFO = 100, APP_LOG_LEVEL_DEBUG = 200, APP_LOG_LEVEL_DEBUG_VERBOSE = 255} AppLogLevel;
 
 void animation_init(struct Animation *animation);
 void animation_set_delay(struct Animation *animation, uint32_t delay_ms);
@@ -814,3 +820,19 @@ int number_window_get_value(NumberWindow *numberwindow);
 void clock_copy_time_string(char *buffer, uint8_t size);
 void gbitmap_init_as_sub_bitmap(GBitmap *sub_bitmap, const GBitmap *base_bitmap, GRect sub_rect);
 void gbitmap_init_with_data(GBitmap *bitmap, const uint8_t *data);
+void app_comm_set_sniff_interval(const SniffInterval interval);
+void app_log(uint8_t log_level, const char *src_filename, int src_line_number, const char *fmt, ...);
+void graphics_draw_rect(GContext *ctx, GRect rect);
+void vibes_cancel(void);
+MenuIndex menu_layer_get_selected_index(MenuLayer *menu_layer);
+bool gpoint_equal(const GPoint * const point_a, const GPoint * const point_b);
+bool grect_contains_point(GRect *rect, GPoint *point);
+void grect_align(GRect *rect, const GRect *inside_rect, const GAlign alignment, const bool clip);
+void grect_clip(GRect * const rect_to_clip, const GRect * const rect_clipper);
+GRect grect_crop(GRect rect, const int crop_size_px);
+bool grect_equal(const GRect * const rect_a, const GRect * const rect_b);
+bool grect_is_empty(const GRect * const rect);
+void grect_standardize(GRect *rect);
+bool gsize_equal(GSize *size_a, GSize *size_b);
+time_t pbl_override_time(time_t *tloc);
+uint16_t time_ms(time_t *tloc, uint16_t *out_ms);

@@ -17,3 +17,4 @@
 #import <PebbleKit/NSNumber+stdint.h>
 #import <PebbleKit/PBWatch+Sports.h>
 #import <PebbleKit/PBWatch+Golf.h>
+#import <PebbleKit/PBBitmap.h>

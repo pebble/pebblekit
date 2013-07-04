@@ -19,8 +19,6 @@ char text_buffer[] = " Aa";
 // Modify these common button handlers
 
 void up_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
 
   if (text_buffer[1] != 'Z') {
     text_buffer[1]++;
@@ -31,8 +29,6 @@ void up_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
 
 
 void down_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
 
   if (text_buffer[1] != 'A') {
     text_buffer[1]--;
@@ -44,8 +40,6 @@ void down_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
 
 
 void select_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
 
   static bool show_symbol = false;
 
@@ -54,14 +48,12 @@ void select_single_click_handler(ClickRecognizerRef recognizer, Window *window) 
   if (show_symbol) {
     text_layer_set_font(&textLayer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_UNICONS_30)));
   } else {
-    text_layer_set_font(&textLayer, fonts_get_system_font(FONT_KEY_GOTHAM_30_BLACK));
+    text_layer_set_font(&textLayer, fonts_get_system_font(FONT_KEY_BITHAM_30_BLACK));
   }
 }
 
 
 void select_long_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
 
 }
 
@@ -69,7 +61,6 @@ void select_long_click_handler(ClickRecognizerRef recognizer, Window *window) {
 // This usually won't need to be modified
 
 void click_config_provider(ClickConfig **config, Window *window) {
-  (void)window;
 
   config[BUTTON_ID_SELECT]->click.handler = (ClickHandler) select_single_click_handler;
 
@@ -86,7 +77,6 @@ void click_config_provider(ClickConfig **config, Window *window) {
 // Standard app initialisation
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Font Viewer");
   window_stack_push(&window, true /* Animated */);
@@ -95,7 +85,7 @@ void handle_init(AppContextRef ctx) {
 
   text_layer_init(&textLayer, window.layer.frame);
   text_layer_set_text(&textLayer, text_buffer);
-  text_layer_set_font(&textLayer, fonts_get_system_font(FONT_KEY_GOTHAM_30_BLACK));
+  text_layer_set_font(&textLayer, fonts_get_system_font(FONT_KEY_BITHAM_30_BLACK));
   layer_add_child(&window.layer, &textLayer.layer);
 
   // Attach our desired button functionality

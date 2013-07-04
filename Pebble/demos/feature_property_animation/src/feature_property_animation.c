@@ -16,7 +16,6 @@ PropertyAnimation prop_animation;
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Animation Demo");
   window_stack_push(&window, false);

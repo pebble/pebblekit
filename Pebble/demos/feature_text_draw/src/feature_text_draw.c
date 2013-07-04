@@ -16,7 +16,6 @@ Layer layer;
 
 
 void update_layer_callback(Layer *me, GContext* ctx) {
-  (void)me;
 
   graphics_context_set_text_color(ctx, GColorBlack);
 
@@ -39,7 +38,6 @@ void update_layer_callback(Layer *me, GContext* ctx) {
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Text Draw");
   window_stack_push(&window, true /* Animated */);

@@ -43,7 +43,6 @@ GPath hour_segment_path;
 
 
 void minute_display_layer_update_callback(Layer *me, GContext* ctx) {
-  (void)me;
 
 
   PblTm t;
@@ -74,7 +73,6 @@ void minute_display_layer_update_callback(Layer *me, GContext* ctx) {
 
 
 void hour_display_layer_update_callback(Layer *me, GContext* ctx) {
-  (void)me;
 
 
   PblTm t;
@@ -134,16 +132,12 @@ void hour_display_layer_update_callback(Layer *me, GContext* ctx) {
 
 void handle_minute_tick(AppContextRef ctx, PebbleTickEvent *t) {
 
-  (void)t; // TODO: Pass the time direct to the layers?
-  (void)ctx;
-
   layer_mark_dirty(&minute_display_layer);
   layer_mark_dirty(&hour_display_layer);
 }
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Segment Six watch");
   window_stack_push(&window, true);

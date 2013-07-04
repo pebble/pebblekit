@@ -17,6 +17,7 @@ var searchData=
   ['gcompopassigninverted',['GCompOpAssignInverted',['../group___graphics_types.html#gga0d021422bd90a2a49e6c8d848e6d556fa1ee43eff5811f9066ee8a94498e7d828',1,'gtypes.h']]],
   ['gcompopclear',['GCompOpClear',['../group___graphics_types.html#gga0d021422bd90a2a49e6c8d848e6d556faba6dadf20ebce8ba4c25ecf3c9a39142',1,'gtypes.h']]],
   ['gcompopor',['GCompOpOr',['../group___graphics_types.html#gga0d021422bd90a2a49e6c8d848e6d556fa30d689e91f2ce16dd949b4076fb76ce4',1,'gtypes.h']]],
+  ['gcompopset',['GCompOpSet',['../group___graphics_types.html#gga0d021422bd90a2a49e6c8d848e6d556fa3ca84b5c70798643a3bd07b263c47fe6',1,'gtypes.h']]],
   ['gcornerbottomleft',['GCornerBottomLeft',['../group___drawing.html#ggae0e0ea29942e8ae8fe4a7201adbd1b72abfba1a0e38d1f1e1d87274efb61442ef',1,'graphics.h']]],
   ['gcornerbottomright',['GCornerBottomRight',['../group___drawing.html#ggae0e0ea29942e8ae8fe4a7201adbd1b72af511e89fecfa1efad8b9ad86e95ff961',1,'graphics.h']]],
   ['gcornernone',['GCornerNone',['../group___drawing.html#ggae0e0ea29942e8ae8fe4a7201adbd1b72a30ccebd81d739451a4c2e1ded1e5955e',1,'graphics.h']]],

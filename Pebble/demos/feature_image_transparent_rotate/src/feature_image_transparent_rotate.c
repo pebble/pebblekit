@@ -43,7 +43,6 @@ int32_t current_layer_angle = 0;
 
 
 void handle_timer(AppContextRef ctx, AppTimerHandle handle, uint32_t cookie) {
-  (void)handle;
 
   // This implementation assumes only one type of timer used in the app.
 
@@ -58,7 +57,6 @@ void handle_timer(AppContextRef ctx, AppTimerHandle handle, uint32_t cookie) {
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Demo");
   window_stack_push(&window, false /* Not animated */);
@@ -102,7 +100,6 @@ void handle_init(AppContextRef ctx) {
 
 
 void handle_deinit(AppContextRef ctx) {
-  (void)ctx;
 
   rotbmp_pair_deinit_container(&bitmap_container);
 }

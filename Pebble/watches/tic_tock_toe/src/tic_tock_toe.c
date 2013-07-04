@@ -45,7 +45,6 @@ TextLayer timeLayer; // The clock/"scoreboard"
 
 // This is called whenever the `boardLayer` layer needs to be redrawn.
 void boardLayer_update_callback(Layer *me, GContext* ctx) {
-  (void)me; // Prevents "unused" warnings.
 
   graphics_context_set_stroke_color(ctx, COLOR_FOREGROUND);
 
@@ -248,7 +247,6 @@ void drawGameState(GContext* ctx, const DemoGameState gameState) {
 // This is called whenever the `playersLayer` layer needs to be redrawn.
 // TODO: Can we get this called without the layer being cleared?
 void playersLayer_update_callback(Layer *me, GContext* ctx) {
-  (void)me; // Prevents "unused" warnings.
 
   DemoGameState gameState;
 
@@ -298,7 +296,6 @@ void update_time_display() {
 
 // Handle the start-up of the app
 void handle_init_app(AppContextRef app_ctx) {
-  (void) app_ctx;
 
   // Create our app's base window
   window_init(&window, "Tic Tock Toe watch");
@@ -334,8 +331,6 @@ void handle_init_app(AppContextRef app_ctx) {
 
 // Called once per second
 static void handle_second_tick(AppContextRef ctx, PebbleTickEvent *t) {
-  (void)ctx;
-  (void)t;
 
   // Causes a redraw of the layer (via the
   // associated layer update callback)

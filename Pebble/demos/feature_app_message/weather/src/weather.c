@@ -14,10 +14,9 @@ PBL_APP_INFO(MY_UUID, "Pebble Weather", "Pebble Technology", 0x1, 0x0, DEFAULT_M
 static struct WeatherData {
   Window window;
   TextLayer temperature_layer;
-  char temperature[16];
   BitmapLayer icon_layer;
-  GBitmap icon_bitmap;
-  uint8_t bitmap_data[BITMAP_BUFFER_BYTES];
+  uint32_t current_icon;
+  HeapBitmap icon_bitmap;
   AppSync sync;
   uint8_t sync_buffer[32];
 } s_data;
@@ -34,40 +33,35 @@ static uint32_t WEATHER_ICONS[] = {
   RESOURCE_ID_IMAGE_SNOW
 };
 
-static void mkbitmap(GBitmap* bitmap, const uint8_t* data) {
-  bitmap->addr = (void*)data + 12;
-  bitmap->row_size_bytes = ((uint16_t*)data)[0];
-  bitmap->info_flags = ((uint16_t*)data)[1];
-  bitmap->bounds.origin.x = 0;
-  bitmap->bounds.origin.y = 0;
-  bitmap->bounds.size.w = ((int16_t*)data)[4];
-  bitmap->bounds.size.h = ((int16_t*)data)[5];
-}
-
 static void load_bitmap(uint32_t resource_id) {
-  const ResHandle h = resource_get_handle(resource_id);
-  resource_load(h, s_data.bitmap_data, BITMAP_BUFFER_BYTES);
-  mkbitmap(&s_data.icon_bitmap, s_data.bitmap_data);
+  // If that resource is already the current icon, we don't need to reload it
+  if (s_data.current_icon == resource_id) {
+    return;
+  }
+  // Only deinit the current bitmap if a bitmap was previously loaded
+  if (s_data.current_icon != 0) {
+    heap_bitmap_deinit(&s_data.icon_bitmap);
+  }
+  // Keep track of what the current icon is
+  s_data.current_icon = resource_id;
+  // Load the new icon
+  heap_bitmap_init(&s_data.icon_bitmap, resource_id);
 }
 
 // TODO: Error handling
 static void sync_error_callback(DictionaryResult dict_error, AppMessageResult app_message_error, void *context) {
-  (void) dict_error;
-  (void) app_message_error;
-  (void) context;
 }
 
 static void sync_tuple_changed_callback(const uint32_t key, const Tuple* new_tuple, const Tuple* old_tuple, void* context) {
-  (void) old_tuple;
 
   switch (key) {
   case WEATHER_ICON_KEY:
     load_bitmap(WEATHER_ICONS[new_tuple->value->uint8]);
-    layer_mark_dirty(&s_data.icon_layer.layer);
+    bitmap_layer_set_bitmap(&s_data.icon_layer, &s_data.icon_bitmap.bmp);
     break;
   case WEATHER_TEMPERATURE_KEY:
-    strncpy(s_data.temperature, new_tuple->value->cstring, 16);
-    layer_mark_dirty(&s_data.temperature_layer.layer);
+    // App Sync keeps the new_tuple around, so we may use it directly
+    text_layer_set_text(&s_data.temperature_layer, new_tuple->value->cstring);
     break;
   default:
     return;
@@ -75,7 +69,8 @@ static void sync_tuple_changed_callback(const uint32_t key, const Tuple* new_tup
 }
 
 static void weather_app_init(AppContextRef c) {
-  (void) c;
+
+  s_data.current_icon = 0;
 
   resource_init_current_app(&WEATHER_APP_RESOURCES);
 
@@ -86,7 +81,6 @@ static void weather_app_init(AppContextRef c) {
 
   GRect icon_rect = (GRect) {(GPoint) {32, 10}, (GSize) { 80, 80 }};
   bitmap_layer_init(&s_data.icon_layer, icon_rect);
-  bitmap_layer_set_bitmap(&s_data.icon_layer, &s_data.icon_bitmap);
   layer_add_child(&window->layer, &s_data.icon_layer.layer);
 
   text_layer_init(&s_data.temperature_layer, GRect(0, 100, 144, 68));
@@ -94,7 +88,6 @@ static void weather_app_init(AppContextRef c) {
   text_layer_set_background_color(&s_data.temperature_layer, GColorClear);
   text_layer_set_font(&s_data.temperature_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));
   text_layer_set_text_alignment(&s_data.temperature_layer, GTextAlignmentCenter);
-  text_layer_set_text(&s_data.temperature_layer, s_data.temperature);
   layer_add_child(&window->layer, &s_data.temperature_layer.layer);
 
   Tuplet initial_values[] = {
@@ -107,9 +100,12 @@ static void weather_app_init(AppContextRef c) {
   window_stack_push(window, true);
 }
 
- static void weather_app_deinit(AppContextRef c) {
-   app_sync_deinit(&s_data.sync);
- }
+static void weather_app_deinit(AppContextRef c) {
+  app_sync_deinit(&s_data.sync);
+  if (s_data.current_icon != 0) {
+    heap_bitmap_deinit(&s_data.icon_bitmap);
+  }
+}
 
 void pbl_main(void *params) {
   PebbleAppHandlers handlers = {

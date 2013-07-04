@@ -15,9 +15,8 @@ import java.util.UUID;
 import static com.getpebble.android.kit.Constants.*;
 
 /**
- * A helper class providing methods for interacting with third-party Pebble Smartwatch applications.
- * Pebble-enabled Android applications may use this class to assist in sending/receiving data between the watch and
- * the phone.
+ * A helper class providing methods for interacting with third-party Pebble Smartwatch applications. Pebble-enabled
+ * Android applications may use this class to assist in sending/receiving data between the watch and the phone.
  *
  * @author zulak@getpebble.com
  */
@@ -187,6 +186,35 @@ public final class PebbleKit {
     public static void sendDataToPebble(final Context context, final UUID watchappUuid, final PebbleDictionary data)
             throws IllegalArgumentException {
 
+        sendDataToPebbleWithTransactionId(context, watchappUuid, data, -1);
+    }
+
+    /**
+     * Send one-or-more key-value pairs to the watch-app identified by the provided UUID.
+     * <p/>
+     * The watch-app and phone-app must agree of the set and type of key-value pairs being exchanged. Type mismatches or
+     * missing keys will cause errors on the receiver's end.
+     *
+     * @param context
+     *         The context used to send the broadcast.
+     * @param watchappUuid
+     *         A UUID uniquely identifying the target application. UUIDs for the stock kit applications are available in
+     *         {@link Constants}.
+     * @param data
+     *         A dictionary containing one-or-more key-value pairs. For more information about the types of data that
+     *         can be stored, see {@link PebbleDictionary}.
+     *
+     * @param transactionId
+     *         An integer uniquely identifying the transaction. This can be used to correlate messages sent to the
+     *         Pebble and ACK/NACKs received from the Pebble.
+     *
+     * @throws IllegalArgumentException
+     *         Thrown in the specified PebbleDictionary or UUID is invalid.
+     */
+    public static void sendDataToPebbleWithTransactionId(final Context context, final UUID watchappUuid,
+                                            final PebbleDictionary data, final int transactionId)
+            throws IllegalArgumentException {
+
         if (watchappUuid == null) {
             throw new IllegalArgumentException("uuid cannot be null");
         }
@@ -201,6 +229,7 @@ public final class PebbleKit {
 
         final Intent sendDataIntent = new Intent(INTENT_APP_SEND);
         sendDataIntent.putExtra(APP_UUID, watchappUuid);
+        sendDataIntent.putExtra(TRANSACTION_ID, transactionId);
         sendDataIntent.putExtra(MSG_DATA, data.toJsonString());
         context.sendBroadcast(sendDataIntent);
     }
@@ -318,6 +347,48 @@ public final class PebbleKit {
         return registerBroadcastReceiverInternal(context, INTENT_APP_RECEIVE, receiver);
     }
 
+    /**
+     * A convenience function to assist in programatically registering a broadcast receiver for the 'RECEIVE_ACK'
+     * intent.
+     * <p/>
+     * To avoid leaking memory, activities registering BroadcastReceivers <em>must</em> unregister them in the
+     * Activity's {@link android.app.Activity#onPause()} method.
+     *
+     * @param context
+     *         The context in which to register the BroadcastReceiver.
+     * @param receiver
+     *         The receiver to be registered.
+     *
+     * @return The registered receiver.
+     *
+     * @see Constants#INTENT_APP_RECEIVE_ACK
+     */
+    public static BroadcastReceiver registerReceivedAckHandler(final Context context,
+                                                               final PebbleAckReceiver receiver) {
+        return registerBroadcastReceiverInternal(context, INTENT_APP_RECEIVE_ACK, receiver);
+    }
+
+    /**
+     * A convenience function to assist in programatically registering a broadcast receiver for the 'RECEIVE_NACK'
+     * intent.
+     * <p/>
+     * To avoid leaking memory, activities registering BroadcastReceivers <em>must</em> unregister them in the
+     * Activity's {@link android.app.Activity#onPause()} method.
+     *
+     * @param context
+     *         The context in which to register the BroadcastReceiver.
+     * @param receiver
+     *         The receiver to be registered.
+     *
+     * @return The registered receiver.
+     *
+     * @see Constants#INTENT_APP_RECEIVE_NACK
+     */
+    public static BroadcastReceiver registerReceivedNackHandler(final Context context,
+                                                                final PebbleNackReceiver receiver) {
+        return registerBroadcastReceiverInternal(context, INTENT_APP_RECEIVE_NACK, receiver);
+    }
+
     private static BroadcastReceiver registerBroadcastReceiverInternal(final Context context, final String action,
                                                                        final BroadcastReceiver receiver) {
         if (receiver == null) {
@@ -377,6 +448,72 @@ public final class PebbleKit {
                 e.printStackTrace();
                 return;
             }
+        }
+    }
+
+    /**
+     * A special-purpose BroadcastReceiver that makes it easy to handle 'RECEIVE_ACK' intents broadcast from pebble
+     * .apk.
+     */
+    public static abstract class PebbleAckReceiver extends BroadcastReceiver {
+        private final UUID subscribedUuid;
+
+        protected PebbleAckReceiver(final UUID subscribedUuid) {
+            this.subscribedUuid = subscribedUuid;
+        }
+
+        /**
+         * Handle the ACK received from the connected watch.
+         *
+         * @param context
+         *         The BroadcastReceiver's context.
+         * @param transactionId
+         *         The transaction ID of the message for which the ACK was received. This indicates which message was
+         *         successfully received.
+         */
+        public abstract void receiveAck(final Context context, final int transactionId);
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void onReceive(final Context context, final Intent intent) {
+            final int transactionId = intent.getIntExtra(TRANSACTION_ID, -1);
+            receiveAck(context, transactionId);
+
+        }
+    }
+
+    /**
+     * A special-purpose BroadcastReceiver that makes it easy to handle 'RECEIVE_NACK' intents broadcast from pebble
+     * .apk.
+     */
+    public static abstract class PebbleNackReceiver extends BroadcastReceiver {
+        private final UUID subscribedUuid;
+
+        protected PebbleNackReceiver(final UUID subscribedUuid) {
+            this.subscribedUuid = subscribedUuid;
+        }
+
+        /**
+         * Handle the NACK received from the connected watch.
+         *
+         * @param context
+         *         The BroadcastReceiver's context.
+         * @param transactionId
+         *         The transaction ID of the message for which the NACK was received. This indicates which message was
+         *         not received.
+         */
+        public abstract void receiveNack(final Context context, final int transactionId);
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void onReceive(final Context context, final Intent intent) {
+            final int transactionId = intent.getIntExtra(TRANSACTION_ID, -1);
+            receiveNack(context, transactionId);
+
         }
     }
 }

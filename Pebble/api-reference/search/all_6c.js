@@ -23,6 +23,7 @@ var searchData=
   ['length',['length',['../group___dictionary.html#ac83219d80bf6300b0afe53d5b30955a9',1,'Tuple']]],
   ['light',['Light',['../group___light.html',1,'']]],
   ['light_5fenable_5finteraction',['light_enable_interaction',['../group___light.html#ga7074135af850ea753dc5a98378bca122',1,'light.h']]],
+  ['logging',['Logging',['../group___logging.html',1,'']]],
   ['long_5fclick',['long_click',['../group___clicks.html#struct_click_config_1_1long__click',1,'ClickConfig']]],
   ['long_5fclick',['long_click',['../group___clicks.html#a48571801cc60874da0de5af42ad4b341',1,'ClickConfig']]]
 ];

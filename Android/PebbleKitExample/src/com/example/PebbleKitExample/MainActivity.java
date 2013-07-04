@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import com.example.PebbleKitExample.TodoList.ExampleTodoListActivity;
 
 public class MainActivity extends ListActivity {
 
@@ -18,6 +19,7 @@ public class MainActivity extends ListActivity {
                 "Sports App Example",
                 "Golf App Example",
                 "Weather App Example",
+                "To-Do List Example",
                 "GPS/SMS App Example",
                 "GCM Activity"
         };
@@ -39,9 +41,12 @@ public class MainActivity extends ListActivity {
                 intent = new Intent(this, ExampleWeatherActivity.class);
                 break;
             case 3:
-                intent = new Intent(this, ExampleSmsActivity.class);
+                intent = new Intent(this, ExampleTodoListActivity.class);
                 break;
             case 4:
+                intent = new Intent(this, ExampleSmsActivity.class);
+                break;
+            case 5:
                 intent = new Intent(this, ExampleGCMActivity.class);
                 break;
         }

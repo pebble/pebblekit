@@ -16,7 +16,6 @@ TextLayer right_layer;
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Alignment");
   window_stack_push(&window, true /* Animated */);

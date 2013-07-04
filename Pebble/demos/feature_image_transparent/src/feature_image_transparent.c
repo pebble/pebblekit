@@ -33,7 +33,6 @@ TextLayer text_layer; // Used as a background to help demonstrate transparency.
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Demo");
   window_stack_push(&window, false /* Not animated */);
@@ -73,7 +72,6 @@ void handle_init(AppContextRef ctx) {
 
 
 void handle_deinit(AppContextRef ctx) {
-  (void)ctx;
 
   rotbmp_pair_deinit_container(&bitmap_container);
 }

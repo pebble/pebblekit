@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.1 (build 858)" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
 	</head>
 	<body>
 		<header id="top_header">
@@ -167,15 +167,15 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>PBFirmwareVersion is a helper class that is able to parse the versionTag string<br/>
-into its components (<a href="#//api/name/os">os</a>, <a href="#//api/name/major">major</a>, <a href="#//api/name/minor">minor</a>, <a href="#//api/name/suffix">suffix</a>) and facilitate comparisons<br/>
-between versions.<br/>
-Valid versions follow the following format:<br/>
-<code>vOS(.MAJOR(.MINOR(-SUFFIX)))</code><br/>
-Where the fields OS, MAJOR, MINOR are positive, decimal integer numbers and SUFFIX<br/>
-an arbitrary string. MAJOR, MINOR and SUFFIX are optional (nested optionality).<br/>
-Examples of valid versions:<br/>
-<code>v1</code><br/>
+						<p>PBFirmwareVersion is a helper class that is able to parse the versionTag string
+into its components (<a href="#//api/name/os">os</a>, <a href="#//api/name/major">major</a>, <a href="#//api/name/minor">minor</a>, <a href="#//api/name/suffix">suffix</a>) and facilitate comparisons
+between versions.
+Valid versions follow the following format:
+<code>vOS(.MAJOR(.MINOR(-SUFFIX)))</code>
+Where the fields OS, MAJOR, MINOR are positive, decimal integer numbers and SUFFIX
+an arbitrary string. MAJOR, MINOR and SUFFIX are optional (nested optionality).
+Examples of valid versions:
+<code>v1</code>
 <code>v2.1234.99-alpha-beta-gamma</code></p>
 					</div>
 					
@@ -216,7 +216,7 @@ Examples of valid versions:<br/>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/suffix">&nbsp;&nbsp;suffix</a></code>
-		<span class="tooltip"><p>The release suffix, which is the part following the dash &lsquo;-&rsquo;.</p></span>
+		<span class="tooltip"><p>The release suffix, which is the part following the dash &lsquo;&ndash;&rsquo;.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -230,7 +230,8 @@ Examples of valid versions:<br/>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/commitHash">&nbsp;&nbsp;commitHash</a></code>
-		<span class="tooltip"><p>The version&rsquo;s git commit hash.</p></span>
+		<span class="tooltip"><p>The version&rsquo;s git commit hash.
+@discussion The commit hash is not used in the <a href="#//api/name/compare:">compare:</a> method.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -251,7 +252,8 @@ Examples of valid versions:<br/>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/firmwareVersionWithOS:major:minor:suffix:commitHash:timestamp:">+&nbsp;firmwareVersionWithOS:major:minor:suffix:commitHash:timestamp:</a></code>
-		<span class="tooltip"><p>Creates a PBFirmwareVersion object given its components.</p></span>
+		<span class="tooltip"><p>Creates a PBFirmwareVersion object given its components.
+@discussion The <a href="#//api/name/tag">tag</a> string will be set to the canonical format vOS.MINOR.MAJOR(-SUFFIX).</p></span>
 	</span>
 	
 	
@@ -289,7 +291,8 @@ Examples of valid versions:<br/>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The version&rsquo;s git commit hash.</p>
+		<p>The version&rsquo;s git commit hash.
+@discussion The commit hash is not used in the <a href="#//api/name/compare:">compare:</a> method.</p>
 	</div>		
 	
     
@@ -306,7 +309,8 @@ Examples of valid versions:<br/>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The version&rsquo;s git commit hash.</p><p>The commit hash is not used in the <a href="#//api/name/compare:">compare:</a> method.</p>
+		<p>The version&rsquo;s git commit hash.
+@discussion The commit hash is not used in the <a href="#//api/name/compare:">compare:</a> method.</p>
 	</div>
 	
 	
@@ -347,8 +351,7 @@ Examples of valid versions:<br/>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The major version component.</p><blockquote><p>%note%<br/>
-<strong>Note:</strong> If a version <a href="#//api/name/tag">tag</a> string does not contain a major component, it will be set to 0.</p></blockquote>
+		<p>The major version component.</p><div class="note"><p><strong>Note:</strong> If a version <a href="#//api/name/tag">tag</a> string does not contain a major component, it will be set to 0.</p></div>
 	</div>
 	
 	
@@ -389,8 +392,7 @@ Examples of valid versions:<br/>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The minor version component.</p><blockquote><p>%note%<br/>
-<strong>Note:</strong> If a version <a href="#//api/name/tag">tag</a> string does not contain a <a href="#//api/name/major">major</a> component, it will be set to 0.</p></blockquote>
+		<p>The minor version component.</p><div class="note"><p><strong>Note:</strong> If a version <a href="#//api/name/tag">tag</a> string does not contain a <a href="#//api/name/major">major</a> component, it will be set to 0.</p></div>
 	</div>
 	
 	
@@ -455,7 +457,7 @@ Examples of valid versions:<br/>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The release suffix, which is the part following the dash &lsquo;-&rsquo;.</p>
+		<p>The release suffix, which is the part following the dash &lsquo;&ndash;&rsquo;.</p>
 	</div>		
 	
     
@@ -472,8 +474,8 @@ Examples of valid versions:<br/>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The release suffix, which is the part following the dash &lsquo;-&rsquo;.</p><blockquote><p>%note%<br/>
-<strong>Note:</strong> If a version <a href="#//api/name/tag">tag</a> string does not contain a suffix, it will be set to an empty string.</p></blockquote><p>The release suffix is not used in the <a href="#//api/name/compare:">compare:</a> method.</p>
+		<p>The release suffix, which is the part following the dash &lsquo;&ndash;&rsquo;.</p><div class="note"><p><strong>Note:</strong> If a version <a href="#//api/name/tag">tag</a> string does not contain a suffix, it will be set to an empty string.
+@discussion The release suffix is not used in the <a href="#//api/name/compare:">compare:</a> method.</p></div>
 	</div>
 	
 	
@@ -555,9 +557,8 @@ Examples of valid versions:<br/>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The version timestamp.</p><blockquote><p>%note%<br/>
-<strong>Note:</strong> The timestamp is in the final comparison equation, in the <a href="#//api/name/compare:">compare:</a> method, after evaluating<br/>
-<a href="#//api/name/os">os</a>, <a href="#//api/name/major">major</a> and <a href="#//api/name/minor">minor</a> components.</p></blockquote>
+		<p>The version timestamp.</p><div class="note"><p><strong>Note:</strong> The timestamp is in the final comparison equation, in the <a href="#//api/name/compare:">compare:</a> method, after evaluating
+<a href="#//api/name/os">os</a>, <a href="#//api/name/major">major</a> and <a href="#//api/name/minor">minor</a> components.</p></div>
 	</div>
 	
 	
@@ -589,7 +590,8 @@ Examples of valid versions:<br/>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Creates a PBFirmwareVersion object given its components.</p>
+		<p>Creates a PBFirmwareVersion object given its components.
+@discussion The <a href="#//api/name/tag">tag</a> string will be set to the canonical format vOS.MINOR.MAJOR(-SUFFIX).</p>
 	</div>		
 	
     
@@ -606,7 +608,8 @@ Examples of valid versions:<br/>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Creates a PBFirmwareVersion object given its components.</p><p>The <a href="#//api/name/tag">tag</a> string will be set to the canonical format vOS.MINOR.MAJOR(-SUFFIX).</p>
+		<p>Creates a PBFirmwareVersion object given its components.
+@discussion The <a href="#//api/name/tag">tag</a> string will be set to the canonical format vOS.MINOR.MAJOR(-SUFFIX).</p>
 	</div>
 	
 	
@@ -702,7 +705,7 @@ Examples of valid versions:<br/>
 	
 	<div class="method-subsection return">
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>NSOrderedAscending if the value of aVersion is greater than the receiver’s,<br/>
+		<p>NSOrderedAscending if the value of aVersion is greater than the receiver’s,
 NSOrderedSame if they’re equal, and NSOrderedDescending if the value of aVersion is less than the receiver’s.</p>
 	</div>
 	
@@ -783,9 +786,9 @@ NSOrderedSame if they’re equal, and NSOrderedDescending if the value of aVersi
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2013 Pebble Technology Corp.. All rights reserved. (Last updated: 2013-05-31)</span><br />
+						<p><span class="copyright">&copy; 2013 Pebble Technology Corp.. All rights reserved. (Last updated: 2013-07-04)</span><br />
 						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>.</span></p>
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
 						
 					</div>
 				</div>

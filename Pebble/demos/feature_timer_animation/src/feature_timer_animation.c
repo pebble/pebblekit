@@ -38,7 +38,6 @@ GPath square_path;
 
 
 void update_square_layer(Layer *me, GContext* ctx) {
-  (void)me;
 
   static unsigned int angle = 0;
 
@@ -52,8 +51,6 @@ void update_square_layer(Layer *me, GContext* ctx) {
 
 
 void handle_timer(AppContextRef ctx, AppTimerHandle handle, uint32_t cookie) {
-  (void)ctx;
-  (void)handle;
 
   if (cookie == COOKIE_MY_TIMER) {
     layer_mark_dirty(&square_layer);

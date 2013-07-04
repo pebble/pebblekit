@@ -76,8 +76,6 @@ static void hands_update_proc(Layer* me, GContext* ctx) {
 }
 
 static void date_update_proc(Layer* me, GContext* ctx) {
-  (void) me;
-  (void) ctx;
 
   PblTm t;
   get_time(&t);
@@ -150,7 +148,6 @@ static void handle_init(AppContextRef app_ctx) {
 }
 
 static void handle_second_tick(AppContextRef ctx, PebbleTickEvent* t) {
-  (void) t;
   layer_mark_dirty(&s_data.window.layer);
 }
 

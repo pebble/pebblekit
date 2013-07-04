@@ -29,19 +29,18 @@ static void handle_minute_tick(AppContextRef app_ctx, PebbleTickEvent* e) {
 }
 
 static void handle_init(AppContextRef ctx) {
-  (void) ctx;
 
   window_init(&s_data.window, "My Fuzzy Time");
   const bool animated = true;
   window_stack_push(&s_data.window, animated);
 
   window_set_background_color(&s_data.window, GColorBlack);
-  GFont gotham = fonts_get_system_font(FONT_KEY_DROID_SERIF_28_BOLD);
+  GFont font = fonts_get_system_font(FONT_KEY_DROID_SERIF_28_BOLD);
 
   text_layer_init(&s_data.label, GRect(0, 20, s_data.window.layer.frame.size.w, s_data.window.layer.frame.size.h - 20));
   text_layer_set_background_color(&s_data.label, GColorBlack);
   text_layer_set_text_color(&s_data.label, GColorWhite);
-  text_layer_set_font(&s_data.label, gotham);
+  text_layer_set_font(&s_data.label, font);
   layer_add_child(&s_data.window.layer, &s_data.label.layer);
 
   PblTm t;

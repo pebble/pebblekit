@@ -42,9 +42,6 @@ short editMode = EDIT_MODE_OFF;
 // Called once per second
 void handle_second_tick(AppContextRef ctx, PebbleTickEvent *t) {
 
-  (void)ctx;
-  (void)t;
-
   static char timeText[] = "00:00:00"; // Needs to be static because it's used by the system later.
 
   PblTm currentTime;
@@ -140,16 +137,12 @@ void displayHelp() {
 
 
 void select_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
 
   displayHelp();
 }
 
 
 void select_long_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
 
   editMode = (editMode + 1) % EDIT_MODE_MAX;
 
@@ -190,23 +183,18 @@ void updateLocation(bool upButtonPressed) {
 
 
 void up_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
 
   updateLocation(true);
 }
 
 
 void down_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
 
   updateLocation(false);
 }
 
 
 void config_provider(ClickConfig **config, Window *window) {
-  (void)window;
 
   config[BUTTON_ID_SELECT]->click.handler = (ClickHandler) select_single_click_handler;
 

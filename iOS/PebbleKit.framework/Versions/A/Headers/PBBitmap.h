@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIImage.h>
-#import "gtypes.h"
+#import <PebbleKit/gtypes.h>
 
 /**
  *  Helper class to convert a UIImage to Pebble bitmap pixel data and GBitmap metadata.

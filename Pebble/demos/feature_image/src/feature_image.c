@@ -26,7 +26,6 @@ BmpContainer image_container;
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Demo");
   window_stack_push(&window, true /* Animated */);
@@ -43,7 +42,6 @@ void handle_init(AppContextRef ctx) {
 
 
 void handle_deinit(AppContextRef ctx) {
-  (void)ctx;
 
   // Note: Failure to de-init this here will result in instability and
   //       unable to allocate memory errors.

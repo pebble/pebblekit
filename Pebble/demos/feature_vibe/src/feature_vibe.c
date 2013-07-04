@@ -9,7 +9,6 @@ Window window;
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Demo");
   window_stack_push(&window, false /* Not animated */);

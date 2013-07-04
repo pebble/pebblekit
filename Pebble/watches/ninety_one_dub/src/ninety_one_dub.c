@@ -136,14 +136,12 @@ void update_display(PblTm *current_time) {
 
 
 void handle_minute_tick(AppContextRef ctx, PebbleTickEvent *t) {
-  (void)ctx;
 
   update_display(t->tick_time);
 }
 
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "91 Dub");
   window_stack_push(&window, true /* Animated */);
@@ -182,7 +180,6 @@ void handle_init(AppContextRef ctx) {
 
 
 void handle_deinit(AppContextRef ctx) {
-  (void)ctx;
 
   bmp_deinit_container(&background_image);
   bmp_deinit_container(&meter_bar_image);

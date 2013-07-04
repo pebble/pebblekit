@@ -16,30 +16,22 @@ TextLayer textLayer;
 // Modify these common button handlers
 
 void up_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
 
 }
 
 
 void down_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
 
 }
 
 
 void select_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
 
   text_layer_set_text(&textLayer, "Select!");
 }
 
 
 void select_long_click_handler(ClickRecognizerRef recognizer, Window *window) {
-  (void)recognizer;
-  (void)window;
 
 }
 
@@ -47,7 +39,6 @@ void select_long_click_handler(ClickRecognizerRef recognizer, Window *window) {
 // This usually won't need to be modified
 
 void click_config_provider(ClickConfig **config, Window *window) {
-  (void)window;
 
   config[BUTTON_ID_SELECT]->click.handler = (ClickHandler) select_single_click_handler;
 
@@ -64,14 +55,13 @@ void click_config_provider(ClickConfig **config, Window *window) {
 // Standard app initialisation
 
 void handle_init(AppContextRef ctx) {
-  (void)ctx;
 
   window_init(&window, "Button App");
   window_stack_push(&window, true /* Animated */);
 
   text_layer_init(&textLayer, window.layer.frame);
   text_layer_set_text(&textLayer, "Hello World");
-  text_layer_set_font(&textLayer, fonts_get_system_font(FONT_KEY_GOTHAM_30_BLACK));
+  text_layer_set_font(&textLayer, fonts_get_system_font(FONT_KEY_BITHAM_30_BLACK));
   layer_add_child(&window.layer, &textLayer.layer);
 
   // Attach our desired button functionality

@@ -9,11 +9,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_a_p_i_changelog.html",
-"group___menu_layer.html#ga4cc9ec01c64cdacec243b5316b467ba9"
+"group___media_utils.html#ga9a6a2d4d1f2bd2e62f9e5c873778a78e"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
 var navTreeSubIndices = new Array();
 
 function getData(varName)
@@ -38,14 +36,8 @@ function stripPath2(uri)
 
 function localStorageSupported()
 {
-  try {
-    return 'localStorage' in window && window['localStorage'] !== null && window.localStorage.getItem;
-  }
-  catch(e) {
-    return false;
-  }
+  return 'localStorage' in window && window['localStorage'] !== null;
 }
-
 
 function storeLink(link)
 {
@@ -433,26 +425,16 @@ function navTo(o,root,hash,relpath)
   }
 }
 
-function showSyncOff(n,relpath)
-{
-    n.html('<img src="'+relpath+'sync_off.png" title="'+SYNCOFFMSG+'"/>');
-}
-
-function showSyncOn(n,relpath)
-{
-    n.html('<img src="'+relpath+'sync_on.png"/ title="'+SYNCONMSG+'">');
-}
-
 function toggleSyncButton(relpath)
 {
   var navSync = $('#nav-sync');
   if (navSync.hasClass('sync')) {
     navSync.removeClass('sync');
-    showSyncOff(navSync,relpath);
+    navSync.html('<img src="'+relpath+'sync_off.png"/>');
     storeLink(stripPath2($(location).attr('pathname'))+$(location).attr('hash'));
   } else {
     navSync.addClass('sync');
-    showSyncOn(navSync,relpath);
+    navSync.html('<img src="'+relpath+'sync_on.png"/>');
     deleteLink();
   }
 }
@@ -480,10 +462,10 @@ function initNavTree(toroot,relpath)
   if (localStorageSupported()) {
     var navSync = $('#nav-sync');
     if (cachedLink()) {
-      showSyncOff(navSync,relpath);
+      navSync.html('<img src="'+relpath+'sync_off.png"/>');
       navSync.removeClass('sync');
     } else {
-      showSyncOn(navSync,relpath);
+      navSync.html('<img src="'+relpath+'sync_on.png"/>');
     }
     navSync.click(function(){ toggleSyncButton(relpath); });
   }

@@ -35,6 +35,16 @@ public final class Constants {
     public static final String INTENT_APP_RECEIVE = "com.getpebble.action.app.RECEIVE";
 
     /**
+     * Intent broadcast from pebble.apk indicating that a sent message was successfully received by a watch app.
+     */
+    public static final String INTENT_APP_RECEIVE_ACK = "com.getpebble.action.app.RECEIVE_ACK";
+
+    /**
+     * Intent broadcast from pebble.apk indicating that a sent message was not received by a watch app.
+     */
+    public static final String INTENT_APP_RECEIVE_NACK = "com.getpebble.action.app.RECEIVE_NACK";
+
+    /**
      * Intent broadcast to pebble.apk containing one-or-more key-value pairs to be sent to the watch from the phone.
      */
     public static final String INTENT_APP_SEND = "com.getpebble.action.app.SEND";

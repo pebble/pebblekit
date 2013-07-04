@@ -5,6 +5,7 @@ var searchData=
   ['select_5flong_5fclick',['select_long_click',['../group___menu_layer.html#a37b862ad3aceeaf906834b7d2fdb0196',1,'MenuLayerCallbacks']]],
   ['selected',['selected',['../group___number_window.html#a4e684ff178c36b96c583fd5e292ee542',1,'NumberWindowCallbacks']]],
   ['selection_5fchanged',['selection_changed',['../group___menu_layer.html#a0f35fb6edefe0879f351f16d471cb1a1',1,'MenuLayerCallbacks']]],
+  ['setter',['setter',['../group___property_animation.html#ab5a9f0de3df8b26487d063507c8e7532',1,'PropertyAnimationAccessors']]],
   ['setup',['setup',['../group___animation.html#a4cfa9952ca859f0555e2db1b29f135b8',1,'AnimationImplementation']]],
   ['size',['size',['../group___graphics_types.html#acd904b1a13b264f257827a295d2d208e',1,'GRect']]],
   ['started',['started',['../group___animation.html#aabde74563b7b9821699bb5e9b3f4a59f',1,'AnimationHandlers']]],

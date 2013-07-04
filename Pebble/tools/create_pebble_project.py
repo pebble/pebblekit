@@ -61,15 +61,23 @@ def create_ignore_files(location):
         the_file.write(file_gitignore)
 
 
-def create_symlinks(project_root, sdk_root):
+def symlink(src, dst, force = False):
+    try:
+        if (force and os.path.lexists(dst)):
+            os.remove(dst)
+        os.symlink(src, dst)
+    except OSError, e:
+        print "Error symlinking #{} to #{}: #{}".format(src, dst, e)
+        raise e
+  
+def create_symlinks(project_root, sdk_root, force = False):
     SDK_LINKS = ["waf", "wscript", "tools", "lib", "pebble_app.ld", "include"]
 
     for item_name in SDK_LINKS:
-        os.symlink(os.path.join(sdk_root, item_name), os.path.join(project_root, item_name))
+        symlink(os.path.join(sdk_root, item_name), os.path.join(project_root, item_name), force)
 
-    os.symlink(os.path.join(sdk_root, os.path.join("resources", "wscript")),
-               os.path.join(project_root, os.path.join("resources", "wscript")))
-
+    symlink(os.path.join(sdk_root, os.path.join("resources", "wscript")),
+               os.path.join(project_root, os.path.join("resources", "wscript")), force)
 
 def generate_uuid_as_array():
     """
@@ -122,6 +130,8 @@ if __name__ == "__main__":
     parser.add_argument("project_name", help="The project is created in a directory of this name.")
 
     parser.add_argument("--symlink-only", help="Only create the symlinks to the SDK files/directories. (Use this when you have an existing project directory.)", action="store_true")
+    
+    parser.add_argument("--update-symlink", help="Updates the symlinks to point to a new SDK. (Use this when upgrading a project to a new SDK.)", action="store_true")
 
     args = parser.parse_args()
 
@@ -129,12 +139,13 @@ if __name__ == "__main__":
     PROJECT_NAME = args.project_name
     PROJECT_ROOT = os.path.join(os.getcwd(), PROJECT_NAME)
 
-    SYMLINK_ONLY = args.symlink_only
-
+    SYMLINK_ONLY = args.symlink_only or args.update_symlink
+    UPDATE = args.update_symlink
+    
     if not SYMLINK_ONLY:
         create_project(PROJECT_ROOT, SDK_ROOT)
     else:
         print "\nCreating symlinks here:\n\n\t", PROJECT_ROOT
-        create_symlinks(PROJECT_ROOT, SDK_ROOT)
+        create_symlinks(PROJECT_ROOT, SDK_ROOT, UPDATE)
 
     print "\nNow run:\n\n\tcd %s\n\t./waf configure\n\t./waf build\n" % (PROJECT_NAME)
