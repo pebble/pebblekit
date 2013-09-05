@@ -32,11 +32,12 @@ typedef enum {
 // struct_version (little endian):
 // 0x0800 -- sdk_version and app_version uint16_t fields added (Grand Slam / 1.7)
 // .major:0x08 .minor:0x01 -- all version fields split up into minor/major; uuid field appended (Junior Whopper / 2.0?)
+// sdk.major:4 .minor:0 -- Bump the SDK version to make 1.x and 2.x apps distinguishable
 
 #define APP_INFO_CURRENT_STRUCT_VERSION_MINOR 0x1
 #define APP_INFO_CURRENT_STRUCT_VERSION_MAJOR 0x8
-#define APP_INFO_CURRENT_SDK_VERSION_MAJOR 0x3
-#define APP_INFO_CURRENT_SDK_VERSION_MINOR 0x3
+#define APP_INFO_CURRENT_SDK_VERSION_MAJOR 0x4
+#define APP_INFO_CURRENT_SDK_VERSION_MINOR 0x0
 #define APP_NAME_BYTES 32
 #define COMPANY_NAME_BYTES 32
 
