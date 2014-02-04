@@ -81,7 +81,7 @@ def gen_resource_deps(bld,
             else:
                 trackingAdjustArg = ''
             if 'characterRegex' in entry:
-                characterRegexArg = '--filter "%s"' % entry['characterRegex']
+                characterRegexArg = '--filter "%s"' % entry['characterRegex'].encode('utf-8')
             else:
                 characterRegexArg = ''
             bld(rule = "python {} pfo {} {} {} {} {}".format(font_script.abspath(),
