@@ -24,6 +24,7 @@ public final class PebbleKit {
 
     private static final int NAME_MAX_LENGTH = 32;
     private static final int ICON_MAX_DIMENSIONS = 32;
+    private static final String WATCH_CONNECTION_STATUS_URI = "content://com.getpebble.android.provider/state";
 
     private PebbleKit() {
 
@@ -84,13 +85,18 @@ public final class PebbleKit {
      * @return true if an active connection to the watch currently exists, otherwise false. This method will also return
      *         false if the Pebble application is not installed on the user's handset.
      */
-    public static boolean isWatchConnected(final Context context) {
-        Cursor c = context.getContentResolver().query(Uri.parse("content://com.getpebble.android.provider/state"),
-                null, null, null, null);
-        if (c == null || !c.moveToNext()) {
+    public static boolean isWatchConnected(Context context) {
+        Cursor cursor = context.getContentResolver().query(Uri.parse(WATCH_CONNECTION_STATUS_URI), null, null, null, null);
+        if (cursor == null) {
             return false;
+        } else if (!cursor.moveToNext()) {
+            cursor.close();
+            return false;
+        } else {
+            boolean isConnected = cursor.getInt(0) == 1;
+            cursor.close();
+            return isConnected;
         }
-        return c.getInt(0) == 1;
     }
 
     /**
